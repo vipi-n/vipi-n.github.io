@@ -403,6 +403,50 @@
     .edu-card .tl-title { font-size: 16px; }
     .edu-card .tl-company { font-size: 14px; margin-bottom: 0; }
 
+    /* ---------- GitHub Activity ---------- */
+    .gh-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .gh-card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .gh-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow);
+    }
+    .gh-card img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+    .gh-contrib {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 22px;
+      overflow-x: auto;
+    }
+    .gh-contrib a { display: block; }
+    .gh-contrib img {
+      width: 100%;
+      min-width: 600px;
+      height: auto;
+    }
+    /* Show light variant in light mode, dark variant in dark mode */
+    .gh-img-dark { display: none; }
+    [data-theme="dark"] .gh-img-light { display: none; }
+    [data-theme="dark"] .gh-img-dark { display: inline-block; }
+
     /* ---------- Contact ---------- */
     .contact-card {
       background: linear-gradient(135deg, var(--surface), var(--surface-2));
@@ -468,6 +512,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
+        <a href="#github">GitHub</a>
         <a href="#contact">Contact</a>
         <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
           <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
@@ -648,6 +693,62 @@
     </div>
   </section>
 
+  <section class="block" id="github" aria-labelledby="gh-h">
+    <div class="block-inner">
+      <span class="eyebrow">// github</span>
+      <h2 class="section-heading" id="gh-h">GitHub activity</h2>
+      <p class="section-sub">A snapshot of my open-source contributions and coding streak.</p>
+
+      <div class="gh-grid">
+        <a class="gh-card" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View profile on GitHub">
+          <img
+            src="https://github-readme-stats.vercel.app/api?username=vipi-n&show_icons=true&hide_border=true&count_private=true&include_all_commits=true&theme=transparent&title_color=2563eb&icon_color=2563eb&text_color=475569"
+            alt="Vipin's GitHub stats"
+            loading="lazy"
+            class="gh-img-light"
+          />
+          <img
+            src="https://github-readme-stats.vercel.app/api?username=vipi-n&show_icons=true&hide_border=true&count_private=true&include_all_commits=true&theme=transparent&title_color=60a5fa&icon_color=60a5fa&text_color=cbd5e1"
+            alt="Vipin's GitHub stats"
+            loading="lazy"
+            class="gh-img-dark"
+          />
+        </a>
+        <a class="gh-card" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View streak on GitHub">
+          <img
+            src="https://github-readme-streak-stats.herokuapp.com/?user=vipi-n&hide_border=true&background=FFFFFF00&stroke=e2e8f0&ring=2563eb&fire=2563eb&currStreakNum=0f172a&sideNums=0f172a&currStreakLabel=2563eb&sideLabels=475569&dates=64748b"
+            alt="Vipin's GitHub streak"
+            loading="lazy"
+            class="gh-img-light"
+          />
+          <img
+            src="https://github-readme-streak-stats.herokuapp.com/?user=vipi-n&hide_border=true&background=FFFFFF00&stroke=1e293b&ring=60a5fa&fire=60a5fa&currStreakNum=f1f5f9&sideNums=f1f5f9&currStreakLabel=60a5fa&sideLabels=cbd5e1&dates=94a3b8"
+            alt="Vipin's GitHub streak"
+            loading="lazy"
+            class="gh-img-dark"
+          />
+        </a>
+      </div>
+
+      <div class="gh-contrib">
+        <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View contributions on GitHub">
+          <img
+            src="https://ghchart.rshah.org/2563eb/vipi-n"
+            alt="Vipin's GitHub contribution graph"
+            loading="lazy"
+            class="gh-img-light"
+          />
+          <img
+            src="https://ghchart.rshah.org/60a5fa/vipi-n"
+            alt="Vipin's GitHub contribution graph"
+            loading="lazy"
+            class="gh-img-dark"
+          />
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="block" aria-labelledby="edu-h">
     <div class="block-inner">
       <span class="eyebrow">// education</span>
@@ -667,7 +768,7 @@
     <div class="block-inner">
       <div class="contact-card">
         <h2 id="contact-h">Let's build something together.</h2>
-        <p>I'm open to interesting opportunities and good conversations. Reach me via LinkedIn and I'll share my email.</p>
+        <p>I'm open to interesting opportunities and good conversations. Reach me on LinkedIn.</p>
         <div class="contact-links">
           <span class="btn" aria-label="Email available on request" title="Available on request">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
