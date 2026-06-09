@@ -430,8 +430,7 @@
       vertical-align: middle;
     }
     .gh-contrib,
-    .gh-activity,
-    .gh-trophies {
+    .gh-activity {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
@@ -439,10 +438,9 @@
       overflow-x: auto;
       margin-bottom: 16px;
     }
-    .gh-trophies { padding: 16px; }
+    .gh-activity { margin-bottom: 0; }
     .gh-contrib a,
-    .gh-activity a,
-    .gh-trophies a { display: block; }
+    .gh-activity a { display: block; }
     .gh-contrib img {
       width: 100%;
       min-width: 600px;
@@ -452,11 +450,90 @@
       width: 100%;
       height: auto;
     }
-    .gh-trophies img {
-      width: 100%;
-      height: auto;
-      min-width: 600px;
+
+    .gh-recent {
+      margin-top: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 22px 24px;
     }
+    .gh-recent-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gh-recent-title::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #22c55e25;
+    }
+    .gh-events {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .gh-events li {
+      display: grid;
+      grid-template-columns: 22px 1fr auto;
+      gap: 10px;
+      align-items: start;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-muted);
+      transition: background 0.15s ease;
+    }
+    .gh-events li:hover { background: var(--surface-2); }
+    .gh-events .ev-icon {
+      width: 22px; height: 22px;
+      display: grid; place-items: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .gh-events .ev-icon svg { width: 16px; height: 16px; }
+    .gh-events .ev-body { min-width: 0; }
+    .gh-events .ev-action { font-weight: 500; }
+    .gh-events .ev-repo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .gh-events .ev-repo:hover { text-decoration: underline; }
+    .gh-events .ev-msg {
+      display: block;
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-top: 2px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .gh-events .ev-time {
+      font-size: 12px;
+      color: var(--text-soft);
+      white-space: nowrap;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .gh-loading, .gh-error {
+      color: var(--text-soft);
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      grid-template-columns: 1fr !important;
+    }
+    .gh-loading::before, .gh-error::before { display: none; }
+
     /* Show light variant in light mode, dark variant in dark mode */
     .gh-img-dark { display: none; }
     [data-theme="dark"] .gh-img-light { display: none; }
@@ -793,22 +870,13 @@
         </a>
       </div>
 
-      <div class="gh-trophies">
-        <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View trophies on GitHub">
-          <img
-            src="https://github-profile-trophy.vercel.app/?username=vipi-n&theme=flat&no-frame=true&no-bg=true&row=1&column=7&margin-w=8"
-            alt="Vipin's GitHub trophies"
-            loading="lazy"
-            class="gh-img-light"
-          />
-          <img
-            src="https://github-profile-trophy.vercel.app/?username=vipi-n&theme=darkhub&no-frame=true&no-bg=true&row=1&column=7&margin-w=8"
-            alt="Vipin's GitHub trophies"
-            loading="lazy"
-            class="gh-img-dark"
-          />
-        </a>
+      <div class="gh-recent">
+        <h3 class="gh-recent-title">Recent activity</h3>
+        <ul id="ghEvents" class="gh-events" aria-live="polite">
+          <li class="gh-loading">Loading recent contributions from GitHub…</li>
+        </ul>
       </div>
+
     </div>
   </section>
 
@@ -877,6 +945,97 @@
         localStorage.setItem('theme', next);
       });
       document.getElementById('yr').textContent = new Date().getFullYear();
+    })();
+
+    /* ---------- Live GitHub recent activity ---------- */
+    (function () {
+      const list = document.getElementById('ghEvents');
+      if (!list) return;
+
+      const USER = 'vipi-n';
+      const ICONS = {
+        push: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.5A2.5 2.5 0 0 1 3.5 0h8.75a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0V1.5h-8a1 1 0 0 0-1 1v6.708A2.49 2.49 0 0 1 3.5 9h3.25a.75.75 0 0 1 0 1.5H3.5a1 1 0 0 0 0 2h5.75a.75.75 0 0 1 0 1.5H3.5A2.5 2.5 0 0 1 1 11.5Zm13.273 6.61a.75.75 0 0 1 1.06 0l2.116 2.117a.75.75 0 0 1 0 1.06l-2.116 2.117a.75.75 0 0 1-1.061-1.06l.838-.84H10.75a.75.75 0 0 1 0-1.5h4.36l-.837-.84a.75.75 0 0 1 0-1.06Z"/></svg>',
+        pull: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>',
+        issue: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"/></svg>',
+        star: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>',
+        fork: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"/></svg>',
+        create: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .4-.2l1.45 1.087a.25.25 0 0 1 0 .4L5.4 14.625a.25.25 0 0 1-.4-.2Z"/></svg>',
+        default: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>'
+      };
+
+      const escape = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+
+      const timeAgo = (iso) => {
+        const s = (Date.now() - new Date(iso).getTime()) / 1000;
+        if (s < 60) return 'just now';
+        if (s < 3600) return Math.floor(s / 60) + 'm ago';
+        if (s < 86400) return Math.floor(s / 3600) + 'h ago';
+        if (s < 86400 * 30) return Math.floor(s / 86400) + 'd ago';
+        if (s < 86400 * 365) return Math.floor(s / (86400 * 30)) + 'mo ago';
+        return Math.floor(s / (86400 * 365)) + 'y ago';
+      };
+
+      const describe = (e) => {
+        const repo = e.repo?.name || '';
+        const repoUrl = `https://github.com/${repo}`;
+        switch (e.type) {
+          case 'PushEvent': {
+            const commits = e.payload?.commits || [];
+            const msg = commits[commits.length - 1]?.message?.split('\n')[0] || '';
+            return { icon: 'push', action: `Pushed ${commits.length} commit${commits.length === 1 ? '' : 's'} to`, repo, repoUrl, msg };
+          }
+          case 'PullRequestEvent':
+            return { icon: 'pull', action: `${e.payload?.action || 'Opened'} pull request in`, repo, repoUrl, msg: e.payload?.pull_request?.title || '' };
+          case 'IssuesEvent':
+            return { icon: 'issue', action: `${e.payload?.action || 'Opened'} issue in`, repo, repoUrl, msg: e.payload?.issue?.title || '' };
+          case 'IssueCommentEvent':
+            return { icon: 'issue', action: 'Commented on issue in', repo, repoUrl, msg: e.payload?.issue?.title || '' };
+          case 'PullRequestReviewEvent':
+          case 'PullRequestReviewCommentEvent':
+            return { icon: 'pull', action: 'Reviewed pull request in', repo, repoUrl, msg: e.payload?.pull_request?.title || '' };
+          case 'WatchEvent':
+            return { icon: 'star', action: 'Starred', repo, repoUrl, msg: '' };
+          case 'ForkEvent':
+            return { icon: 'fork', action: 'Forked', repo, repoUrl, msg: '' };
+          case 'CreateEvent': {
+            const ref = e.payload?.ref_type || 'something';
+            return { icon: 'create', action: `Created ${ref} in`, repo, repoUrl, msg: e.payload?.ref || '' };
+          }
+          case 'DeleteEvent':
+            return { icon: 'create', action: `Deleted ${e.payload?.ref_type || ''} in`, repo, repoUrl, msg: e.payload?.ref || '' };
+          default:
+            return { icon: 'default', action: e.type.replace('Event', ''), repo, repoUrl, msg: '' };
+        }
+      };
+
+      fetch(`https://api.github.com/users/${USER}/events/public?per_page=30`)
+        .then((r) => {
+          if (!r.ok) throw new Error('Network error: ' + r.status);
+          return r.json();
+        })
+        .then((events) => {
+          if (!Array.isArray(events) || events.length === 0) {
+            list.innerHTML = '<li class="gh-error">No recent public activity found.</li>';
+            return;
+          }
+          const items = events.slice(0, 8).map((e) => {
+            const d = describe(e);
+            return `
+              <li>
+                <span class="ev-icon" aria-hidden="true">${ICONS[d.icon] || ICONS.default}</span>
+                <span class="ev-body">
+                  <span class="ev-action">${escape(d.action)}</span>
+                  <a class="ev-repo" href="${escape(d.repoUrl)}" target="_blank" rel="noopener noreferrer">${escape(d.repo)}</a>
+                  ${d.msg ? `<span class="ev-msg" title="${escape(d.msg)}">${escape(d.msg)}</span>` : ''}
+                </span>
+                <span class="ev-time">${escape(timeAgo(e.created_at))}</span>
+              </li>`;
+          }).join('');
+          list.innerHTML = items;
+        })
+        .catch(() => {
+          list.innerHTML = '<li class="gh-error">Couldn\'t load recent activity right now.</li>';
+        });
     })();
   </script>
 
