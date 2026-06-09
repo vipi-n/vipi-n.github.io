@@ -429,18 +429,33 @@
       height: auto;
       vertical-align: middle;
     }
-    .gh-contrib {
+    .gh-contrib,
+    .gh-activity,
+    .gh-trophies {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       padding: 22px;
       overflow-x: auto;
+      margin-bottom: 16px;
     }
-    .gh-contrib a { display: block; }
+    .gh-trophies { padding: 16px; }
+    .gh-contrib a,
+    .gh-activity a,
+    .gh-trophies a { display: block; }
     .gh-contrib img {
       width: 100%;
       min-width: 600px;
       height: auto;
+    }
+    .gh-activity img {
+      width: 100%;
+      height: auto;
+    }
+    .gh-trophies img {
+      width: 100%;
+      height: auto;
+      min-width: 600px;
     }
     /* Show light variant in light mode, dark variant in dark mode */
     .gh-img-dark { display: none; }
@@ -728,6 +743,20 @@
             class="gh-img-dark"
           />
         </a>
+        <a class="gh-card" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View top languages on GitHub">
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=vipi-n&layout=compact&hide_border=true&theme=transparent&title_color=2563eb&text_color=475569&langs_count=8"
+            alt="Vipin's most used languages"
+            loading="lazy"
+            class="gh-img-light"
+          />
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=vipi-n&layout=compact&hide_border=true&theme=transparent&title_color=60a5fa&text_color=cbd5e1&langs_count=8"
+            alt="Vipin's most used languages"
+            loading="lazy"
+            class="gh-img-dark"
+          />
+        </a>
       </div>
 
       <div class="gh-contrib">
@@ -741,6 +770,40 @@
           <img
             src="https://ghchart.rshah.org/60a5fa/vipi-n"
             alt="Vipin's GitHub contribution graph"
+            loading="lazy"
+            class="gh-img-dark"
+          />
+        </a>
+      </div>
+
+      <div class="gh-activity">
+        <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View activity graph on GitHub">
+          <img
+            src="https://github-readme-activity-graph.vercel.app/graph?username=vipi-n&hide_border=true&bg_color=ffffff00&color=2563eb&line=2563eb&point=8b5cf6&area=true&area_color=2563eb"
+            alt="Vipin's GitHub activity graph"
+            loading="lazy"
+            class="gh-img-light"
+          />
+          <img
+            src="https://github-readme-activity-graph.vercel.app/graph?username=vipi-n&hide_border=true&bg_color=ffffff00&color=60a5fa&line=60a5fa&point=a78bfa&area=true&area_color=60a5fa"
+            alt="Vipin's GitHub activity graph"
+            loading="lazy"
+            class="gh-img-dark"
+          />
+        </a>
+      </div>
+
+      <div class="gh-trophies">
+        <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View trophies on GitHub">
+          <img
+            src="https://github-profile-trophy.vercel.app/?username=vipi-n&theme=flat&no-frame=true&no-bg=true&row=1&column=7&margin-w=8"
+            alt="Vipin's GitHub trophies"
+            loading="lazy"
+            class="gh-img-light"
+          />
+          <img
+            src="https://github-profile-trophy.vercel.app/?username=vipi-n&theme=darkhub&no-frame=true&no-bg=true&row=1&column=7&margin-w=8"
+            alt="Vipin's GitHub trophies"
             loading="lazy"
             class="gh-img-dark"
           />
