@@ -12,9 +12,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vipi-n.github.io/" />
 
-  <title>Vipin Kumar - Backend Engineer</title>
+  <title>Vipin</title>
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232563eb%22/><text x=%2250%22 y=%2268%22 font-size=%2256%22 font-family=%22monospace%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22>&lt;/&gt;</text></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -573,6 +573,16 @@
       font-size: 13.5px;
       border-top: 1px solid var(--border);
     }
+    footer.page-footer .heart {
+      color: #ef4444;
+      font-size: 14px;
+      animation: beat 1.4s ease-in-out infinite;
+      display: inline-block;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
 
     /* ---------- Responsive ---------- */
     @media (max-width: 640px) {
@@ -899,7 +909,7 @@
   </section>
 
   <footer class="page-footer">
-    © <span id="yr"></span> Vipin Kumar · Built with care · Hosted on
+    © <span id="yr"></span> Vipin · Built with <span class="heart" aria-label="love">♥</span> · Hosted on
     <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
   </footer>
 
