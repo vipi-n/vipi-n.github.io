@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vipin Kumar — Backend Engineer building scalable microservices and distributed systems." />
+  <meta name="author" content="Vipin Kumar" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <meta property="og:title" content="Vipin Kumar — Backend Engineer" />
+  <meta property="og:description" content="Backend Engineer building scalable microservices and distributed systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vipi-n.github.io/" />
+
+  <title>Vipin Kumar — Backend Engineer</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- Tokens ---------- */
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f8fafc;
+      --surface: #ffffff;
+      --surface-2: #f1f5f9;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-soft: #64748b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --accent-soft: #dbeafe;
+      --tag-bg: #f1f5f9;
+      --tag-text: #334155;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.08);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --max-w: 1080px;
+      --max-w-narrow: 760px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0a0f1c;
+      --bg-soft: #0f172a;
+      --surface: #111a2e;
+      --surface-2: #0f172a;
+      --border: #1e293b;
+      --border-strong: #334155;
+      --text: #f1f5f9;
+      --text-muted: #cbd5e1;
+      --text-soft: #94a3b8;
+      --accent: #60a5fa;
+      --accent-hover: #93c5fd;
+      --accent-soft: #1e3a8a40;
+      --tag-bg: #1e293b;
+      --tag-text: #cbd5e1;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    code, .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.15s ease; }
+    a:hover { color: var(--accent-hover); }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Nav ---------- */
+    nav.topnav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="dark"] nav.topnav { background: rgba(10, 15, 28, 0.8); }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .logo-mark {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      display: grid; place-items: center;
+      color: white; font-weight: 800; font-size: 13px;
+    }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .icon-btn {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: grid; place-items: center;
+      transition: all 0.15s ease;
+    }
+    .icon-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .icon-btn svg { width: 16px; height: 16px; }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.icon-btn) { display: none; }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 88px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: var(--max-w-narrow);
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+    }
+    .hero .greeting {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .hero .greeting .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px #22c55e25;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p.lead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--text-muted);
+      max-width: 620px;
+      margin-bottom: 28px;
+    }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--accent); color: var(--accent); }
+    span.btn { cursor: default; color: var(--text-muted); }
+    span.btn:hover { transform: none; border-color: var(--border-strong); color: var(--text-muted); }
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-1px); }
+    .btn svg { width: 15px; height: 15px; }
+
+    /* ---------- Section ---------- */
+    section.block {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+    }
+    .block-inner {
+      max-width: var(--max-w-narrow);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .section-heading {
+      font-size: clamp(26px, 3.5vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+
+    /* ---------- About ---------- */
+    .about p {
+      color: var(--text-muted);
+      font-size: 17px;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .about p:last-child { margin-bottom: 0; }
+
+    /* ---------- Skills ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      transition: all 0.15s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow);
+    }
+    .skill-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-card h3 .skill-icon {
+      width: 28px; height: 28px;
+      border-radius: 7px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid; place-items: center;
+      font-size: 14px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      padding: 4px 10px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ---------- Experience timeline ---------- */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+      border-left: 2px solid var(--border);
+    }
+    .tl-item {
+      position: relative;
+      padding-bottom: 36px;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: -36px;
+      top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+    }
+    .tl-item.current::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+    .tl-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .tl-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .tl-company {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .tl-company .sep { color: var(--text-soft); margin: 0 6px; }
+    .tl-desc {
+      list-style: none;
+    }
+    .tl-desc li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+    .tl-desc li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 11px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--text-soft);
+    }
+
+    /* ---------- Education ---------- */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+    .edu-card .tl-date { margin-bottom: 8px; }
+    .edu-card .tl-title { font-size: 16px; }
+    .edu-card .tl-company { font-size: 14px; margin-bottom: 0; }
+
+    /* ---------- Contact ---------- */
+    .contact-card {
+      background: linear-gradient(135deg, var(--surface), var(--surface-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+    }
+    .contact-card h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .contact-card p {
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 24px;
+    }
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    /* ---------- Footer ---------- */
+    footer.page-footer {
+      padding: 32px 24px 48px;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 13.5px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 640px) {
+      .hero { padding: 56px 0 40px; }
+      section.block { padding: 48px 0; }
+      .contact-card { padding: 28px 20px; }
+    }
+
+    /* ---------- Print ---------- */
+    @media print {
+      nav.topnav, footer.page-footer, .hero-cta, .contact-links { display: none !important; }
+      body { background: #fff; color: #000; }
+      section.block { padding: 16px 0; border: none; }
+      .timeline { border-color: #999; }
+      .tl-item::before { background: #fff; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="topnav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="#top" class="logo" aria-label="Home">
+        <span class="logo-mark">VK</span>
+        <span>Vipin Kumar</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <a id="top"></a>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="greeting"><span class="dot"></span> Available for new opportunities</span>
+      <h1>Hey, I'm Vipin <span class="accent">— a Backend Engineer</span> who loves building things at scale.</h1>
+      <p class="lead">
+        I design and develop scalable microservices, distributed systems, and enterprise platforms. Currently at Cisco Systems working on the Crosswork Network Controller — and I've spent 8+ years across banking, payments, and network automation.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Get in touch
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/vipi-n/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="block" id="about" aria-labelledby="about-h">
+    <div class="block-inner about">
+      <span class="eyebrow">// about</span>
+      <h2 class="section-heading" id="about-h">A bit about me</h2>
+      <p>
+        I'm a backend engineer with 8+ years of experience designing scalable microservices, distributed systems, and enterprise platforms. My journey started with banking systems at TCS, moved through payments at FIS Worldpay, and now focuses on network automation at Cisco.
+      </p>
+      <p>
+        I enjoy event-driven architectures, the messy parts of distributed systems, and writing code that other engineers find easy to work with. I care about reliability, clean APIs, and shipping software that holds up under real production load.
+      </p>
+      <p>
+        Outside of work, I spend a lot of time on system design, exploring new patterns, and tinkering with side projects.
+      </p>
+    </div>
+  </section>
+
+  <section class="block" id="skills" aria-labelledby="skills-h">
+    <div class="block-inner">
+      <span class="eyebrow">// skills</span>
+      <h2 class="section-heading" id="skills-h">Tools I work with</h2>
+      <p class="section-sub">A mix of languages, frameworks, and platforms I've used in production over the years.</p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3><span class="skill-icon">&lt;/&gt;</span> Languages</h3>
+          <div class="skill-tags">
+            <span class="tag">Java</span>
+            <span class="tag">SQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Go</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><span class="skill-icon">⚙</span> Frameworks</h3>
+          <div class="skill-tags">
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Microservices</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">JUnit</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><span class="skill-icon">↯</span> Messaging &amp; Streaming</h3>
+          <div class="skill-tags">
+            <span class="tag">Apache Kafka</span>
+            <span class="tag">NATS</span>
+            <span class="tag">Spark</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><span class="skill-icon">☁</span> DevOps &amp; Cloud</h3>
+          <div class="skill-tags">
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">VMware vSphere</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><span class="skill-icon">⌖</span> Tools</h3>
+          <div class="skill-tags">
+            <span class="tag">IntelliJ IDEA</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Git</span>
+            <span class="tag">Splunk</span>
+            <span class="tag">Jira</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3><span class="skill-icon">◇</span> Core Concepts</h3>
+          <div class="skill-tags">
+            <span class="tag">Data Structures</span>
+            <span class="tag">Algorithms</span>
+            <span class="tag">System Design</span>
+            <span class="tag">Event-Driven Arch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience" aria-labelledby="exp-h">
+    <div class="block-inner">
+      <span class="eyebrow">// experience</span>
+      <h2 class="section-heading" id="exp-h">Where I've worked</h2>
+      <p class="section-sub">A timeline of the teams and products I've contributed to.</p>
+
+      <div class="timeline">
+        <div class="tl-item current">
+          <span class="tl-date">Mar 2023 — Present</span>
+          <h3 class="tl-title">Software Engineer</h3>
+          <div class="tl-company">Cisco Systems <span class="sep">·</span> Bengaluru, KA</div>
+          <ul class="tl-desc">
+            <li>Developed and managed solutions for Cisco's Crosswork Network Controller, a platform built on multiple microservices, ensuring seamless integration and scalability.</li>
+            <li>Delivered end-to-end features in collaboration with UI, backend, and QA teams; wrote unit and regression tests, performed code reviews, and gave stakeholder demos.</li>
+            <li>Led the redesign of the Common Licensing Management Service (CLMS), simplifying legacy structures for easier license management and customer understanding.</li>
+            <li>Engineered shared Java utility components integrating Kafka, NATS, and Etcd, improving stability and reducing latency across enterprise applications.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <span class="tl-date">Feb 2023 — Mar 2023</span>
+          <h3 class="tl-title">Software Engineer</h3>
+          <div class="tl-company">J.P. Morgan <span class="sep">·</span> Bengaluru, KA</div>
+          <ul class="tl-desc">
+            <li>Brief tenure focused on onboarding, domain knowledge acquisition, and familiarization with the team's tech stack and development processes.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <span class="tl-date">Aug 2021 — Feb 2023</span>
+          <h3 class="tl-title">Software Engineer II</h3>
+          <div class="tl-company">FIS Global (Worldpay) <span class="sep">·</span> Bengaluru, KA</div>
+          <ul class="tl-desc">
+            <li>Built high-performance modules using Java, Kafka, Spring Boot, and Spark to enhance system functionality and performance.</li>
+            <li>Delivered multiple features and enhancements for WorldPay, a comprehensive payment processing platform for merchants.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <span class="tl-date">Mar 2018 — Aug 2021</span>
+          <h3 class="tl-title">Systems Engineer</h3>
+          <div class="tl-company">TCS <span class="sep">·</span> Bengaluru, KA</div>
+          <ul class="tl-desc">
+            <li>Developed real-time data services using Java, Spring Boot, and Apache Kafka to consume and process data from diverse systems for Nordea Bank.</li>
+            <li>Mapped, transformed, and stored client-specific datasets into HDFS for downstream processing, supporting core banking operations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="edu-h">
+    <div class="block-inner">
+      <span class="eyebrow">// education</span>
+      <h2 class="section-heading" id="edu-h">Education</h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <span class="tl-date">July 2013 — July 2017</span>
+          <h3 class="tl-title">B.Tech in ECE</h3>
+          <div class="tl-company">Techno India Salt Lake <span class="sep">·</span> Kolkata, WB</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact" aria-labelledby="contact-h">
+    <div class="block-inner">
+      <div class="contact-card">
+        <h2 id="contact-h">Let's build something together.</h2>
+        <p>I'm open to interesting opportunities and good conversations. Drop a line and I'll get back to you.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:vipinkm31@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            vipinkm31@gmail.com
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/vipi-n/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+            GitHub
+          </a>
+          <span class="btn" aria-label="Phone number masked" title="Available on request">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            +91 ••• ••• ••••
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    © <span id="yr"></span> Vipin Kumar · Built with care · Hosted on
+    <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const apply = (mode) => root.setAttribute('data-theme', mode);
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      apply(stored || (prefersDark ? 'dark' : 'light'));
+      btn.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        apply(next);
+        localStorage.setItem('theme', next);
+      });
+      document.getElementById('yr').textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+</html>
