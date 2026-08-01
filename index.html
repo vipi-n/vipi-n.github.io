@@ -3,26 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vipin Kumar - Backend Engineer building scalable microservices and distributed systems." />
+  <meta name="description" content="Vipin Kumar - Backend Engineer with 8+ years of experience building scalable microservices and distributed systems." />
   <meta name="author" content="Vipin Kumar" />
   <meta name="theme-color" content="#0f172a" />
-
   <meta property="og:title" content="Vipin Kumar - Backend Engineer" />
-  <meta property="og:description" content="Backend Engineer building scalable microservices and distributed systems." />
+  <meta property="og:description" content="Backend Engineer building resilient microservices, distributed systems, and enterprise platforms." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vipi-n.github.io/" />
-
-  <title>Vipin | Backend Engineer</title>
-
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%232563eb%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%229%2018%203%2012%209%206%22%2F%3E%3Cpolyline%20points%3D%2215%206%2021%2012%2015%2018%22%2F%3E%3Cline%20x1%3D%2214%22%20y1%3D%224%22%20x2%3D%2210%22%20y2%3D%2220%22%2F%3E%3C%2Fsvg%3E" />
-  <link rel="alternate icon" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%232563eb%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%229%2018%203%2012%209%206%22%2F%3E%3Cpolyline%20points%3D%2215%206%2021%2012%2015%2018%22%2F%3E%3Cline%20x1%3D%2214%22%20y1%3D%224%22%20x2%3D%2210%22%20y2%3D%2220%22%2F%3E%3C%2Fsvg%3E" />
+  <title>Vipin Kumar | Backend Engineer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ---------- Tokens ---------- */
     :root {
       --bg: #ffffff;
       --bg-soft: #f8fafc;
@@ -38,13 +32,12 @@
       --accent-soft: #dbeafe;
       --tag-bg: #f1f5f9;
       --tag-text: #334155;
-      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-      --shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
-      --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.08);
+      --shadow: 0 4px 12px rgba(15, 23, 42, .05);
+      --shadow-lg: 0 20px 40px rgba(15, 23, 42, .08);
       --radius: 14px;
       --radius-sm: 10px;
       --max-w: 1080px;
-      --max-w-narrow: 760px;
+      --max-w-narrow: 800px;
     }
 
     [data-theme="dark"] {
@@ -62,965 +55,347 @@
       --accent-soft: #1e3a8a40;
       --tag-bg: #1e293b;
       --tag-text: #cbd5e1;
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
+      --shadow: 0 4px 12px rgba(0, 0, 0, .4);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, .5);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: background .2s ease, color .2s ease;
     }
-
-    code, .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-
-    a { color: var(--accent); text-decoration: none; transition: color 0.15s ease; }
+    a { color: var(--accent); text-decoration: none; transition: color .15s ease; }
     a:hover { color: var(--accent-hover); }
-
+    .mono, code { font-family: "JetBrains Mono", ui-monospace, monospace; }
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .narrow { max-width: var(--max-w-narrow); margin: 0 auto; padding: 0 24px; }
 
-    /* ---------- Nav ---------- */
-    nav.topnav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: saturate(180%) blur(14px);
-      -webkit-backdrop-filter: saturate(180%) blur(14px);
+    nav {
+      position: sticky; top: 0; z-index: 10;
       border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      backdrop-filter: saturate(180%) blur(14px);
     }
-    [data-theme="dark"] nav.topnav { background: rgba(10, 15, 28, 0.8); }
-
-    .nav-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--text);
-    }
-    .logo-mark {
-      width: 30px; height: 30px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent), #8b5cf6);
-      display: grid; place-items: center;
-      color: white; font-weight: 800; font-size: 13px;
-    }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-links a {
-      color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 500;
-    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 24px; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-size: 15px; font-weight: 700; }
+    .logo-mark { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 8px; background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; font-size: 13px; font-weight: 800; }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { color: var(--text-muted); font-size: 14px; font-weight: 500; }
     .nav-links a:hover { color: var(--text); }
-
-    .icon-btn {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      cursor: pointer;
-      display: grid; place-items: center;
-      transition: all 0.15s ease;
-    }
-    .icon-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .icon-btn { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; }
+    .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
     .icon-btn svg { width: 16px; height: 16px; }
+
+    .hero { position: relative; overflow: hidden; padding: 84px 0 70px; }
+    .hero::before { content: ""; position: absolute; top: -210px; right: -190px; width: 520px; height: 520px; background: radial-gradient(circle, var(--accent-soft), transparent 70%); opacity: .65; pointer-events: none; }
+    .hero-inner { position: relative; }
+    .greeting { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-2); color: var(--text-muted); font-size: 13px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px #22c55e25; }
+    h1 { max-width: 780px; margin-bottom: 18px; font-size: clamp(36px, 6vw, 58px); font-weight: 800; letter-spacing: -.04em; line-height: 1.08; }
+    h1 .accent { background: linear-gradient(135deg, var(--accent), #8b5cf6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .lead { max-width: 700px; margin-bottom: 28px; color: var(--text-muted); font-size: clamp(16px, 2vw, 19px); }
+    .hero-cta, .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border: 1px solid var(--border-strong); border-radius: 10px; background: var(--surface); color: var(--text); font-size: 14px; font-weight: 600; }
+    .btn:hover { transform: translateY(-1px); border-color: var(--accent); color: var(--accent); }
+    .btn-primary { border-color: var(--text); background: var(--text); color: var(--bg); }
+    .btn-primary:hover { border-color: var(--accent); background: var(--accent); color: #fff; }
+    .btn svg { width: 15px; height: 15px; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .stat { padding: 10px 14px; border: 1px solid var(--border); border-radius: 9px; background: color-mix(in srgb, var(--surface) 72%, transparent); color: var(--text-muted); font-size: 13px; }
+    .stat strong { color: var(--text); font-size: 16px; margin-right: 5px; }
+
+    section.block { padding: 64px 0; border-top: 1px solid var(--border); }
+    .eyebrow { display: inline-block; margin-bottom: 10px; color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+    .section-heading { margin-bottom: 14px; font-size: clamp(26px, 3.5vw, 34px); font-weight: 700; letter-spacing: -.025em; line-height: 1.2; }
+    .section-sub { max-width: 650px; margin-bottom: 36px; color: var(--text-muted); }
+    .about p { margin-bottom: 16px; color: var(--text-muted); font-size: 17px; line-height: 1.75; }
+    .about p:last-child { margin-bottom: 0; }
+
+    .skills-grid, .oss-grid, .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 16px; }
+    .skill-card, .oss-card, .edu-card, .gh-panel { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
+    .skill-card { padding: 20px; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .skill-card:hover, .oss-card:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: var(--shadow); }
+    .skill-card h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 14px; }
+    .skill-icon, .oss-mark { display: grid; place-items: center; border-radius: 7px; background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .skill-icon { width: 28px; height: 28px; font-size: 14px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { padding: 4px 9px; border-radius: 6px; background: var(--tag-bg); color: var(--tag-text); font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 500; }
+    .tech-tag { display: inline-flex; align-items: center; gap: 7px; padding: 4px 9px; border-radius: 6px; background: var(--tag-bg); color: var(--tag-text); font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 500; }
+    .tech-logo { width: 18px; height: 18px; object-fit: contain; flex: 0 0 18px; }
+    .db-logo { display: grid; place-items: center; border-radius: 4px; background: #3b82f6; color: #fff; font-family: Inter, sans-serif; font-size: 8px; font-weight: 800; letter-spacing: -.04em; }
+    .tag-with-logo { display: inline-flex; align-items: center; gap: 7px; }
+    .tag-logo { width: 16px; height: 16px; object-fit: contain; flex: 0 0 16px; }
+    .tag-logo.svg-logo { display: block; }
+    .tag-logo.svg-logo svg { display: block; width: 100%; height: 100%; }
+    .tag-logo.text-logo { display: grid; place-items: center; border-radius: 4px; background: var(--accent); color: #fff; font-family: Inter, sans-serif; font-size: 7px; font-weight: 800; letter-spacing: -.04em; }
+
+    .timeline { position: relative; padding-left: 28px; border-left: 2px solid var(--border); }
+    .tl-item { position: relative; padding-bottom: 36px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before { content: ""; position: absolute; top: 6px; left: -36px; width: 14px; height: 14px; border: 2px solid var(--accent); border-radius: 50%; background: var(--bg); }
+    .tl-item.current::before { background: var(--accent); box-shadow: 0 0 0 5px var(--accent-soft); }
+    .tl-date { display: block; margin-bottom: 6px; color: var(--text-soft); font-family: "JetBrains Mono", monospace; font-size: 12.5px; }
+    .tl-title { margin-bottom: 2px; color: var(--text); font-size: 18px; font-weight: 700; }
+    .tl-company { margin-bottom: 10px; color: var(--text-muted); font-size: 14.5px; }
+    .sep { margin: 0 6px; color: var(--text-soft); }
+    .tl-desc { list-style: none; }
+    .tl-desc li { position: relative; margin-bottom: 6px; padding-left: 18px; color: var(--text-muted); font-size: 14.5px; line-height: 1.65; }
+    .tl-desc li::before { content: ""; position: absolute; top: 11px; left: 4px; width: 5px; height: 5px; border-radius: 50%; background: var(--text-soft); }
+
+    .oss-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .oss-card { display: block; padding: 22px; color: var(--text); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .oss-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .oss-mark { width: 42px; height: 42px; border-radius: 11px; background: linear-gradient(135deg, var(--accent-soft), #ede9fe); font-size: 18px; }
+    .oss-card h3 { font-size: 17px; }
+    .oss-handle { color: var(--text-soft); font-family: "JetBrains Mono", monospace; font-size: 12px; }
+    .oss-card p { margin-bottom: 14px; color: var(--text-muted); font-size: 14px; }
+    .oss-link { font-size: 13px; font-weight: 600; }
+    .oss-note { margin-top: 16px; color: var(--text-soft); font-size: 13px; }
+
+    .gh-panel { margin-bottom: 16px; padding: 20px; overflow-x: auto; }
+    .gh-panel img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+    .gh-panel.contrib img { width: 100%; min-width: 600px; }
+    .gh-events { display: grid; gap: 8px; list-style: none; }
+    .gh-events li { display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; align-items: start; padding: 9px 10px; border-radius: 8px; color: var(--text-muted); font-size: 14px; }
+    .gh-events li:hover { background: var(--surface-2); }
+    .ev-icon { color: var(--accent); }
+    .ev-repo { font-family: "JetBrains Mono", monospace; font-size: 13px; }
+    .ev-msg { display: block; overflow: hidden; color: var(--text-soft); font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+    .ev-time { color: var(--text-soft); font-family: "JetBrains Mono", monospace; font-size: 12px; white-space: nowrap; }
+    .gh-loading, .gh-error { display: block !important; padding: 12px !important; text-align: center; }
+    .gh-img-dark { display: none !important; }
+    [data-theme="dark"] .gh-img-light { display: none !important; }
+    [data-theme="dark"] .gh-img-dark { display: block !important; }
+
+    .edu-card { padding: 20px; }
+    .edu-card .tl-date { margin-bottom: 8px; }
+    .edu-card .tl-title { font-size: 16px; }
+    .edu-card .tl-company { margin-bottom: 0; font-size: 14px; }
+    .contact-card { padding: 40px; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(135deg, var(--surface), var(--surface-2)); text-align: center; }
+    .contact-card h2 { margin-bottom: 12px; font-size: 28px; letter-spacing: -.02em; }
+    .contact-card p { max-width: 520px; margin: 0 auto 24px; color: var(--text-muted); }
+    .contact-links { justify-content: center; }
+    footer { padding: 32px 24px 48px; border-top: 1px solid var(--border); color: var(--text-soft); font-size: 13.5px; text-align: center; }
+    .heart { color: #ef4444; }
 
     @media (max-width: 640px) {
       .nav-links a:not(.icon-btn) { display: none; }
-    }
-
-    /* ---------- Hero ---------- */
-    .hero {
-      padding: 88px 0 72px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -200px; right: -200px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
-      opacity: 0.6;
-      pointer-events: none;
-    }
-    .hero-inner {
-      max-width: var(--max-w-narrow);
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-    }
-    .hero .greeting {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-    .hero .greeting .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 3px #22c55e25;
-    }
-
-    .hero h1 {
-      font-size: clamp(36px, 6vw, 56px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-    .hero h1 .accent {
-      background: linear-gradient(135deg, var(--accent), #8b5cf6);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p.lead {
-      font-size: clamp(16px, 2vw, 19px);
-      color: var(--text-muted);
-      max-width: 620px;
-      margin-bottom: 28px;
-    }
-    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 20px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid var(--border-strong);
-      background: var(--surface);
-      color: var(--text);
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.15s ease;
-    }
-    .btn:hover { transform: translateY(-1px); border-color: var(--accent); color: var(--accent); }
-    span.btn { cursor: default; color: var(--text-muted); }
-    span.btn:hover { transform: none; border-color: var(--border-strong); color: var(--text-muted); }
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
-    }
-    .btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-1px); }
-    .btn svg { width: 15px; height: 15px; }
-
-    /* ---------- Section ---------- */
-    section.block {
-      padding: 64px 0;
-      border-top: 1px solid var(--border);
-    }
-    .block-inner {
-      max-width: var(--max-w-narrow);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .eyebrow {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 10px;
-    }
-    .section-heading {
-      font-size: clamp(26px, 3.5vw, 34px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 14px;
-    }
-    .section-sub {
-      color: var(--text-muted);
-      max-width: 600px;
-      margin-bottom: 40px;
-      font-size: 16px;
-    }
-
-    /* ---------- About ---------- */
-    .about p {
-      color: var(--text-muted);
-      font-size: 17px;
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-    .about p:last-child { margin-bottom: 0; }
-
-    /* ---------- Skills ---------- */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-    .skill-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 20px;
-      transition: all 0.15s ease;
-    }
-    .skill-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--border-strong);
-      box-shadow: var(--shadow);
-    }
-    .skill-card h3 {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .skill-card h3 .skill-icon {
-      width: 28px; height: 28px;
-      border-radius: 7px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      display: grid; place-items: center;
-      font-size: 14px;
-    }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag {
-      padding: 4px 10px;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      border-radius: 6px;
-      font-size: 12.5px;
-      font-weight: 500;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* ---------- Experience timeline ---------- */
-    .timeline {
-      position: relative;
-      padding-left: 28px;
-      border-left: 2px solid var(--border);
-    }
-    .tl-item {
-      position: relative;
-      padding-bottom: 36px;
-    }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-item::before {
-      content: "";
-      position: absolute;
-      left: -36px;
-      top: 6px;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 2px solid var(--accent);
-    }
-    .tl-item.current::before {
-      background: var(--accent);
-      box-shadow: 0 0 0 5px var(--accent-soft);
-    }
-    .tl-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
-      color: var(--text-soft);
-      margin-bottom: 6px;
-      display: block;
-    }
-    .tl-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-    .tl-company {
-      font-size: 14.5px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-    .tl-company .sep { color: var(--text-soft); margin: 0 6px; }
-    .tl-desc {
-      list-style: none;
-    }
-    .tl-desc li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 6px;
-      color: var(--text-muted);
-      font-size: 14.5px;
-      line-height: 1.65;
-    }
-    .tl-desc li::before {
-      content: "";
-      position: absolute;
-      left: 4px;
-      top: 11px;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--text-soft);
-    }
-
-    /* ---------- Education ---------- */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .edu-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 20px;
-    }
-    .edu-card .tl-date { margin-bottom: 8px; }
-    .edu-card .tl-title { font-size: 16px; }
-    .edu-card .tl-company { font-size: 14px; margin-bottom: 0; }
-
-    /* ---------- GitHub Activity ---------- */
-    .gh-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .gh-card {
-      display: block;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 18px;
-      text-align: center;
-      transition: all 0.15s ease;
-    }
-    .gh-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--border-strong);
-      box-shadow: var(--shadow);
-    }
-    .gh-card img {
-      max-width: 100%;
-      height: auto;
-      vertical-align: middle;
-    }
-    .gh-contrib,
-    .gh-activity {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 22px;
-      overflow-x: auto;
-      margin-bottom: 16px;
-    }
-    .gh-activity { margin-bottom: 0; }
-    .gh-contrib a,
-    .gh-activity a { display: block; }
-    .gh-contrib img {
-      width: 100%;
-      min-width: 600px;
-      height: auto;
-    }
-    .gh-activity img {
-      width: 100%;
-      height: auto;
-    }
-
-    .gh-recent {
-      margin-top: 16px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 22px 24px;
-    }
-    .gh-recent-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .gh-recent-title::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      background: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px #22c55e25;
-    }
-    .gh-events {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .gh-events li {
-      display: grid;
-      grid-template-columns: 22px 1fr auto;
-      gap: 10px;
-      align-items: start;
-      padding: 8px 10px;
-      border-radius: 8px;
-      font-size: 14px;
-      color: var(--text-muted);
-      transition: background 0.15s ease;
-    }
-    .gh-events li:hover { background: var(--surface-2); }
-    .gh-events .ev-icon {
-      width: 22px; height: 22px;
-      display: grid; place-items: center;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-    .gh-events .ev-icon svg { width: 16px; height: 16px; }
-    .gh-events .ev-body { min-width: 0; }
-    .gh-events .ev-action { font-weight: 500; }
-    .gh-events .ev-repo {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: var(--accent);
-      text-decoration: none;
-      word-break: break-word;
-    }
-    .gh-events .ev-repo:hover { text-decoration: underline; }
-    .gh-events .ev-msg {
-      display: block;
-      font-size: 13px;
-      color: var(--text-soft);
-      margin-top: 2px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .gh-events .ev-time {
-      font-size: 12px;
-      color: var(--text-soft);
-      white-space: nowrap;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .gh-loading, .gh-error {
-      color: var(--text-soft);
-      text-align: center;
-      padding: 12px;
-      font-size: 14px;
-      grid-template-columns: 1fr !important;
-    }
-    .gh-loading::before, .gh-error::before { display: none; }
-
-    /* Show light variant in light mode, dark variant in dark mode */
-    .gh-img-dark { display: none; }
-    [data-theme="dark"] .gh-img-light { display: none; }
-    [data-theme="dark"] .gh-img-dark { display: inline-block; }
-
-    /* ---------- Contact ---------- */
-    .contact-card {
-      background: linear-gradient(135deg, var(--surface), var(--surface-2));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 40px;
-      text-align: center;
-    }
-    .contact-card h2 {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-    .contact-card p {
-      color: var(--text-muted);
-      max-width: 480px;
-      margin: 0 auto 24px;
-    }
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    /* ---------- Footer ---------- */
-    footer.page-footer {
-      padding: 32px 24px 48px;
-      text-align: center;
-      color: var(--text-soft);
-      font-size: 13.5px;
-      border-top: 1px solid var(--border);
-    }
-    footer.page-footer .heart {
-      color: #ef4444;
-      font-size: 14px;
-      animation: beat 1.4s ease-in-out infinite;
-      display: inline-block;
-    }
-    @keyframes beat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-    }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 640px) {
-      .hero { padding: 56px 0 40px; }
+      .nav-inner { padding: 12px 18px; }
+      .hero { padding: 56px 0 48px; }
       section.block { padding: 48px 0; }
       .contact-card { padding: 28px 20px; }
+      .ev-time { display: none; }
     }
-
-    /* ---------- Print ---------- */
     @media print {
-      nav.topnav, footer.page-footer, .hero-cta, .contact-links { display: none !important; }
+      nav, footer, .hero-cta, .contact-links, .gh-panel { display: none !important; }
       body { background: #fff; color: #000; }
-      section.block { padding: 16px 0; border: none; }
-      .timeline { border-color: #999; }
-      .tl-item::before { background: #fff; }
+      section.block { padding: 16px 0; border: 0; }
     }
   </style>
 </head>
 
 <body>
-
-  <nav class="topnav" aria-label="Primary">
-    <div class="nav-inner">
-      <a href="#top" class="logo" aria-label="Home">
-        <span class="logo-mark">VK</span>
-        <span>Vipin Kumar</span>
-      </a>
+  <nav aria-label="Primary">
+    <div class="container nav-inner">
+      <a class="logo" href="#top" aria-label="Home"><span class="logo-mark">VK</span><span>Vipin Kumar</span></a>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#github">GitHub</a>
+        <a href="#opensource">Open source</a>
         <a href="#contact">Contact</a>
         <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
-          <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </button>
       </div>
     </div>
   </nav>
 
   <a id="top"></a>
-
   <header class="hero">
-    <div class="hero-inner">
-      <span class="greeting"><span class="dot"></span> Available for new opportunities</span>
-      <h1>Hey, I'm Vipin <span class="accent">- a Backend Engineer</span> who loves building things at scale.</h1>
-      <p class="lead">
-        I design and develop scalable microservices, distributed systems, and enterprise platforms. Currently at Cisco Systems working on the Crosswork Network Controller, and I've spent 8+ years across banking, payments, and network automation.
-      </p>
+    <div class="narrow hero-inner">
+      <span class="greeting"><span class="dot"></span> Backend Engineer · 8+ years of experience</span>
+      <h1>Hey, I'm Vipin <span class="accent">- a Backend Engineer</span> building resilient systems at scale.</h1>
+      <p class="lead">I design and develop scalable microservices, distributed systems, and enterprise platforms. Currently at Cisco Systems, working on the Crosswork Network Controller after building systems across network automation, payments, and banking.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#contact">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Get in touch
-        </a>
-        <a class="btn" href="https://www.linkedin.com/in/vipi-n/" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          LinkedIn
-        </a>
+        <a class="btn btn-primary" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Get in touch</a>
+        <a class="btn" href="https://www.linkedin.com/in/vipi-n/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </header>
 
-  <section class="block" id="about" aria-labelledby="about-h">
-    <div class="block-inner about">
+  <section class="block" id="about" aria-labelledby="about-heading">
+    <div class="narrow about">
       <span class="eyebrow">// about</span>
-      <h2 class="section-heading" id="about-h">A bit about me</h2>
-      <p>
-        I'm a backend engineer with 8+ years of experience designing scalable microservices, distributed systems, and enterprise platforms. My journey started with banking systems at TCS, moved through payments at FIS Worldpay, and now focuses on network automation at Cisco.
-      </p>
-      <p>
-        I enjoy event-driven architectures, the messy parts of distributed systems, and writing code that other engineers find easy to work with. I care about reliability, clean APIs, and shipping software that holds up under real production load.
-      </p>
-      <p>
-        Outside of work, I spend a lot of time on system design, exploring new patterns, and tinkering with side projects.
-      </p>
+      <h2 class="section-heading" id="about-heading">A bit about me</h2>
+      <p>I'm a backend engineer with 8+ years of experience designing scalable microservices, distributed systems, and enterprise platforms. My journey started with real-time banking data services at TCS, moved through payment processing at FIS Global (Worldpay), and now focuses on network automation at Cisco.</p>
+      <p>Focus areas include event-driven architectures, the hard parts of distributed systems, and code that other engineers find easy to work with. Reliability, clean APIs, maintainability, and software that holds up under real production load are core priorities.</p>
+      <p>AI-assisted development tools and agentic workflows help accelerate delivery, improve code quality, streamline reviews, automate testing, and increase developer productivity.</p>
     </div>
   </section>
 
-  <section class="block" id="skills" aria-labelledby="skills-h">
-    <div class="block-inner">
+  <section class="block" id="skills" aria-labelledby="skills-heading">
+    <div class="narrow">
       <span class="eyebrow">// skills</span>
-      <h2 class="section-heading" id="skills-h">Tools I work with</h2>
-      <p class="section-sub">A mix of languages, frameworks, and platforms I've used in production over the years.</p>
-
+      <h2 class="section-heading" id="skills-heading">Tools I work with</h2>
+      <p class="section-sub">A production-focused mix of languages, frameworks, messaging systems, platforms, and engineering practices.</p>
       <div class="skills-grid">
-        <div class="skill-card">
-          <h3><span class="skill-icon">&lt;/&gt;</span> Languages</h3>
-          <div class="skill-tags">
-            <span class="tag">Java</span>
-            <span class="tag">SQL</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Go</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3><span class="skill-icon">⚙</span> Frameworks</h3>
-          <div class="skill-tags">
-            <span class="tag">Spring Boot</span>
-            <span class="tag">Microservices</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">JUnit</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3><span class="skill-icon">↯</span> Messaging &amp; Streaming</h3>
-          <div class="skill-tags">
-            <span class="tag">Apache Kafka</span>
-            <span class="tag">NATS</span>
-            <span class="tag">Spark</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3><span class="skill-icon">☁</span> DevOps &amp; Cloud</h3>
-          <div class="skill-tags">
-            <span class="tag">Docker</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">Jenkins</span>
-            <span class="tag">VMware vSphere</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3><span class="skill-icon">⌖</span> Tools</h3>
-          <div class="skill-tags">
-            <span class="tag">IntelliJ IDEA</span>
-            <span class="tag">VS Code</span>
-            <span class="tag">Git</span>
-            <span class="tag">Splunk</span>
-            <span class="tag">Jira</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3><span class="skill-icon">◇</span> Core Concepts</h3>
-          <div class="skill-tags">
-            <span class="tag">Data Structures</span>
-            <span class="tag">Algorithms</span>
-            <span class="tag">System Design</span>
-            <span class="tag">Event-Driven Arch</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3><span class="skill-icon">✦</span> AI &amp; Tooling</h3>
-          <div class="skill-tags">
-            <span class="tag">MCP Servers</span>
-            <span class="tag">RAG</span>
-            <span class="tag">Prompt Engineering</span>
-            <span class="tag">LLM APIs</span>
-            <span class="tag">AI Agents</span>
-            <span class="tag">Cursor</span>
-            <span class="tag">Copilot</span>
-          </div>
-        </div>
+        <div class="skill-card"><h3><span class="skill-icon">&lt;/&gt;</span> Languages &amp; data</h3><div class="skill-tags"><span class="tech-tag"><img class="tech-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="" loading="lazy" />Java</span><span class="tech-tag"><span class="tech-logo db-logo" aria-hidden="true">SQL</span>SQL</span><span class="tech-tag"><img class="tech-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" loading="lazy" />PostgreSQL</span><span class="tech-tag"><img class="tech-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" alt="" loading="lazy" />Go</span></div></div>
+        <div class="skill-card"><h3><span class="skill-icon">⚙</span> Frameworks &amp; APIs</h3><div class="skill-tags"><span class="tag">Spring Boot</span><span class="tag">Microservices</span><span class="tag">REST APIs</span><span class="tag">gRPC</span><span class="tag">JUnit</span></div></div>
+        <div class="skill-card"><h3><span class="skill-icon">↯</span> Messaging &amp; streaming</h3><div class="skill-tags"><span class="tag">Apache Kafka</span><span class="tag">NATS</span><span class="tag">Apache Spark</span><span class="tag">Etcd</span></div></div>
+        <div class="skill-card"><h3><span class="skill-icon">☁</span> DevOps &amp; platforms</h3><div class="skill-tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">VMware vSphere</span></div></div>
+        <div class="skill-card"><h3><span class="skill-icon">⌖</span> Observability &amp; tools</h3><div class="skill-tags"><span class="tag">Splunk</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">GitHub</span><span class="tag">Jira</span></div></div>
+        <div class="skill-card"><h3><span class="skill-icon">◇</span> Core engineering</h3><div class="skill-tags"><span class="tag">Data Structures</span><span class="tag">Algorithms</span><span class="tag">System Design</span><span class="tag">Event-driven architecture</span></div></div>
+        <div class="skill-card"><h3><span class="skill-icon">✦</span> AI-assisted development</h3><div class="skill-tags"><span class="tag">ChatGPT</span><span class="tag">Codex</span><span class="tag">Claude</span><span class="tag">Cursor</span><span class="tag">Copilot</span><span class="tag">CodeRabbit</span><span class="tag">MCP</span></div></div>
+        <div class="skill-card"><h3><span class="skill-icon">▣</span> Operating systems</h3><div class="skill-tags"><span class="tag">Linux / Unix</span><span class="tag">macOS</span><span class="tag">Windows</span></div></div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="experience" aria-labelledby="exp-h">
-    <div class="block-inner">
+  <section class="block" id="experience" aria-labelledby="experience-heading">
+    <div class="narrow">
       <span class="eyebrow">// experience</span>
-      <h2 class="section-heading" id="exp-h">Where I've worked</h2>
-      <p class="section-sub">A timeline of the teams and products I've contributed to.</p>
-
+      <h2 class="section-heading" id="experience-heading">Where I've worked</h2>
+      <p class="section-sub">End-to-end product development across network automation, payments, and banking.</p>
       <div class="timeline">
-        <div class="tl-item current">
-          <span class="tl-date">Mar 2023 - Present</span>
-          <h3 class="tl-title">Software Engineer</h3>
-          <div class="tl-company">Cisco Systems <span class="sep">·</span> Bengaluru, KA</div>
-          <ul class="tl-desc">
-            <li>Developed and managed solutions for Cisco's Crosswork Network Controller, a platform built on multiple microservices, ensuring seamless integration and scalability.</li>
-            <li>Delivered end-to-end features in collaboration with UI, backend, and QA teams; wrote unit and regression tests, performed code reviews, and gave stakeholder demos.</li>
-            <li>Led the redesign of the Common Licensing Management Service (CLMS), simplifying legacy structures for easier license management and customer understanding.</li>
-            <li>Engineered shared Java utility components integrating Kafka, NATS, and Etcd, improving stability and reducing latency across enterprise applications.</li>
-          </ul>
-        </div>
-
-        <div class="tl-item">
-          <span class="tl-date">Feb 2023 - Mar 2023</span>
-          <h3 class="tl-title">Software Engineer</h3>
-          <div class="tl-company">J.P. Morgan <span class="sep">·</span> Bengaluru, KA</div>
-          <ul class="tl-desc">
-            <li>Brief tenure focused on onboarding, domain knowledge acquisition, and familiarization with the team's tech stack and development processes.</li>
-          </ul>
-        </div>
-
-        <div class="tl-item">
-          <span class="tl-date">Aug 2021 - Feb 2023</span>
-          <h3 class="tl-title">Software Engineer II</h3>
-          <div class="tl-company">FIS Global (Worldpay) <span class="sep">·</span> Bengaluru, KA</div>
-          <ul class="tl-desc">
-            <li>Built high-performance modules using Java, Kafka, Spring Boot, and Spark to enhance system functionality and performance.</li>
-            <li>Delivered multiple features and enhancements for WorldPay, a comprehensive payment processing platform for merchants.</li>
-          </ul>
-        </div>
-
-        <div class="tl-item">
-          <span class="tl-date">Mar 2018 - Aug 2021</span>
-          <h3 class="tl-title">Systems Engineer</h3>
-          <div class="tl-company">TCS <span class="sep">·</span> Bengaluru, KA</div>
-          <ul class="tl-desc">
-            <li>Developed real-time data services using Java, Spring Boot, and Apache Kafka to consume and process data from diverse systems for Nordea Bank.</li>
-            <li>Mapped, transformed, and stored client-specific datasets into HDFS for downstream processing, supporting core banking operations.</li>
-          </ul>
-        </div>
+        <div class="tl-item current"><span class="tl-date">Mar 2023 - Present</span><h3 class="tl-title">Software Engineer</h3><div class="tl-company">Cisco Systems <span class="sep">·</span> Bengaluru, KA</div><ul class="tl-desc"><li>Develop and manage solutions for Cisco's Crosswork Network Controller, a sophisticated platform comprising multiple microservices.</li><li>Deliver end-to-end features with UI, backend, and QA teams; write unit and regression tests, perform code reviews, and provide stakeholder demos.</li><li>Led the redesign of the Common Licensing Management Service (CLMS), simplifying legacy structures and improving customer understanding.</li><li>Facilitated integration of multiple CNC applications with CLMS for consistent licensing workflows across the ecosystem.</li><li>Engineered shared Java utility components integrating Kafka, NATS, and Etcd, improving message handling, fault tolerance, stability, and latency.</li></ul></div>
+        <div class="tl-item"><span class="tl-date">Feb 2023 - Mar 2023</span><h3 class="tl-title">Software Engineer</h3><div class="tl-company">J.P. Morgan <span class="sep">·</span> Bengaluru, KA</div><ul class="tl-desc"><li>Focused on onboarding, domain knowledge acquisition, and familiarization with the team's technology stack and development processes.</li></ul></div>
+        <div class="tl-item"><span class="tl-date">Aug 2021 - Feb 2023</span><h3 class="tl-title">Software Engineer II</h3><div class="tl-company">FIS Global (Worldpay) <span class="sep">·</span> Bengaluru, KA</div><ul class="tl-desc"><li>Designed and developed high-performance payment processing modules using Java, Spring Boot, Apache Kafka, and Apache Spark.</li><li>Delivered multiple features and enhancements for Worldpay, a payment processing platform for merchants.</li></ul></div>
+        <div class="tl-item"><span class="tl-date">Mar 2018 - Aug 2021</span><h3 class="tl-title">Systems Engineer</h3><div class="tl-company">TCS <span class="sep">·</span> Bengaluru, KA</div><ul class="tl-desc"><li>Designed and developed real-time data services using Java, Spring Boot, and Apache Kafka for Nordea Bank.</li><li>Mapped, transformed, and stored client-specific datasets for downstream processing and core banking operations.</li></ul></div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="github" aria-labelledby="gh-h">
-    <div class="block-inner">
+  <section class="block" id="opensource" aria-labelledby="opensource-heading">
+    <div class="narrow">
+      <span class="eyebrow">// open source</span>
+      <h2 class="section-heading" id="opensource-heading">Contributing beyond work</h2>
+      <p class="section-sub">I contribute to open-source communities that sit close to the technologies I enjoy building with.</p>
+      <div class="oss-grid">
+        <a class="oss-card" href="https://github.com/spring-projects" target="_blank" rel="noopener noreferrer"><div class="oss-card-top"><span class="oss-mark">S</span><div><h3>Spring Projects</h3><span class="oss-handle">@spring-projects</span></div></div><p>Open-source work in the Spring ecosystem, supporting the Java and Spring community.</p><span class="oss-link">View community on GitHub →</span></a>
+        <a class="oss-card" href="https://github.com/valkey-io" target="_blank" rel="noopener noreferrer"><div class="oss-card-top"><span class="oss-mark">V</span><div><h3>Valkey</h3><span class="oss-handle">@valkey-io</span></div></div><p>Contributions connected to Valkey and the open-source infrastructure ecosystem.</p><span class="oss-link">View community on GitHub →</span></a>
+      </div>
+      <p class="oss-note">See my <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer">GitHub profile</a> for the latest public activity and contribution history.</p>
+    </div>
+  </section>
+
+  <section class="block" id="github" aria-labelledby="github-heading">
+    <div class="narrow">
       <span class="eyebrow">// github</span>
-      <h2 class="section-heading" id="gh-h">GitHub activity</h2>
-      <p class="section-sub">A snapshot of my open-source contributions and coding streak.</p>
-
-      <div class="gh-grid">
-        <a class="gh-card" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View streak on GitHub">
-          <img
-            src="https://github-readme-streak-stats.herokuapp.com/?user=vipi-n&hide_border=true&background=FFFFFF00&stroke=e2e8f0&ring=2563eb&fire=2563eb&currStreakNum=0f172a&sideNums=0f172a&currStreakLabel=2563eb&sideLabels=475569&dates=64748b"
-            alt="Vipin's GitHub streak"
-            loading="lazy"
-            class="gh-img-light"
-          />
-          <img
-            src="https://github-readme-streak-stats.herokuapp.com/?user=vipi-n&hide_border=true&background=FFFFFF00&stroke=1e293b&ring=60a5fa&fire=60a5fa&currStreakNum=f1f5f9&sideNums=f1f5f9&currStreakLabel=60a5fa&sideLabels=cbd5e1&dates=94a3b8"
-            alt="Vipin's GitHub streak"
-            loading="lazy"
-            class="gh-img-dark"
-          />
-        </a>
-      </div>
-
-      <div class="gh-contrib">
-        <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View contributions on GitHub">
-          <img
-            src="https://ghchart.rshah.org/216e39/vipi-n"
-            alt="Vipin's GitHub contribution graph"
-            loading="lazy"
-            class="gh-img-light"
-          />
-          <img
-            src="https://ghchart.rshah.org/39d353/vipi-n"
-            alt="Vipin's GitHub contribution graph"
-            loading="lazy"
-            class="gh-img-dark"
-          />
-        </a>
-      </div>
-
-      <div class="gh-activity">
-        <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer" aria-label="View activity graph on GitHub">
-          <img
-            src="https://github-readme-activity-graph.vercel.app/graph?username=vipi-n&hide_border=true&bg_color=ffffff00&color=216e39&line=2da44e&point=216e39&area=true&area_color=2da44e"
-            alt="Vipin's GitHub activity graph"
-            loading="lazy"
-            class="gh-img-light"
-          />
-          <img
-            src="https://github-readme-activity-graph.vercel.app/graph?username=vipi-n&hide_border=true&bg_color=ffffff00&color=39d353&line=39d353&point=26a641&area=true&area_color=39d353"
-            alt="Vipin's GitHub activity graph"
-            loading="lazy"
-            class="gh-img-dark"
-          />
-        </a>
-      </div>
-
-      <div class="gh-recent">
-        <h3 class="gh-recent-title">Recent activity</h3>
-        <ul id="ghEvents" class="gh-events" aria-live="polite">
-          <li class="gh-loading">Loading recent contributions from GitHub…</li>
-        </ul>
-      </div>
-
+      <h2 class="section-heading" id="github-heading">GitHub activity</h2>
+      <p class="section-sub">A live snapshot of my public coding activity and open-source contributions.</p>
+      <div class="gh-panel"><a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer"><img class="gh-img-light" src="https://github-readme-streak-stats.herokuapp.com/?user=vipi-n&hide_border=true&background=FFFFFF00&stroke=e2e8f0&ring=2563eb&fire=2563eb&currStreakNum=0f172a&sideNums=0f172a&currStreakLabel=2563eb&sideLabels=475569&dates=64748b" alt="Vipin's GitHub streak" loading="lazy" /><img class="gh-img-dark" src="https://github-readme-streak-stats.herokuapp.com/?user=vipi-n&hide_border=true&background=FFFFFF00&stroke=1e293b&ring=60a5fa&fire=60a5fa&currStreakNum=f1f5f9&sideNums=f1f5f9&currStreakLabel=60a5fa&sideLabels=cbd5e1&dates=94a3b8" alt="Vipin's GitHub streak" loading="lazy" /></a></div>
+      <div class="gh-panel contrib"><a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer"><img class="gh-img-light" src="https://ghchart.rshah.org/216e39/vipi-n" alt="Vipin's GitHub contribution graph" loading="lazy" /><img class="gh-img-dark" src="https://ghchart.rshah.org/39d353/vipi-n" alt="Vipin's GitHub contribution graph" loading="lazy" /></a></div>
+      <div class="gh-panel"><h3 style="font-size:14px;margin-bottom:14px">Recent public activity</h3><ul id="ghEvents" class="gh-events" aria-live="polite"><li class="gh-loading">Loading recent activity from GitHub...</li></ul></div>
     </div>
   </section>
 
-  <section class="block" aria-labelledby="edu-h">
-    <div class="block-inner">
+  <section class="block" aria-labelledby="education-heading">
+    <div class="narrow">
       <span class="eyebrow">// education</span>
-      <h2 class="section-heading" id="edu-h">Education</h2>
-
+      <h2 class="section-heading" id="education-heading">Education</h2>
       <div class="edu-grid">
-        <div class="edu-card">
-          <span class="tl-date">July 2013 - July 2017</span>
-          <h3 class="tl-title">B.Tech in ECE</h3>
-          <div class="tl-company">Techno India Salt Lake <span class="sep">·</span> Kolkata, WB</div>
-        </div>
+        <div class="edu-card"><span class="tl-date">July 2013 - July 2017</span><h3 class="tl-title">Bachelor of Technology in ECE</h3><div class="tl-company">Techno India Salt Lake <span class="sep">·</span> Kolkata, WB</div></div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="contact" aria-labelledby="contact-h">
-    <div class="block-inner">
-      <div class="contact-card">
-        <h2 id="contact-h">Let's build something together.</h2>
-        <p>I'm open to interesting opportunities and good conversations. Reach me on LinkedIn.</p>
-        <div class="contact-links">
-          <span class="btn" aria-label="Email available on request" title="Available on request">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            ••••••••@gmail.com
-          </span>
-          <a class="btn" href="https://www.linkedin.com/in/vipi-n/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            LinkedIn
-          </a>
-          <a class="btn" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
-            GitHub
-          </a>
-          <a class="btn" href="https://leetcode.com/u/vipi-n/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
-            LeetCode
-          </a>
-          <span class="btn" aria-label="Phone number masked" title="Available on request">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
-            +91 ••• ••• ••••
-          </span>
-        </div>
-      </div>
-    </div>
+  <section class="block" id="contact" aria-labelledby="contact-heading">
+    <div class="narrow"><div class="contact-card"><h2 id="contact-heading">Let's build something together.</h2><p>I'm open to interesting opportunities and good conversations. Connect with me online.</p><div class="contact-links"><a class="btn" href="https://www.linkedin.com/in/vipi-n/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a><a class="btn" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18.92-.26 1.9-.39 2.88-.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>GitHub</a><a class="btn" href="https://leetcode.com/u/vipi-n/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>LeetCode</a></div></div></div>
   </section>
 
-  <footer class="page-footer">
-    © <span id="yr"></span> Vipin · Built with <span class="heart" aria-label="love">♥</span> · Hosted on
-    <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
-  </footer>
+  <footer>© <span id="year"></span> Vipin Kumar · Built with <span class="heart" aria-label="love">♥</span> · Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a></footer>
 
   <script>
-    (function () {
+    (() => {
       const root = document.documentElement;
-      const btn = document.getElementById('themeToggle');
-      const apply = (mode) => root.setAttribute('data-theme', mode);
+      const toggle = document.getElementById('themeToggle');
       const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      apply(stored || (prefersDark ? 'dark' : 'light'));
-      btn.addEventListener('click', () => {
+      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const applyTheme = (theme) => root.setAttribute('data-theme', theme);
+      applyTheme(stored || preferred);
+      toggle.addEventListener('click', () => {
         const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        apply(next);
+        applyTheme(next);
         localStorage.setItem('theme', next);
       });
-      document.getElementById('yr').textContent = new Date().getFullYear();
+      document.getElementById('year').textContent = new Date().getFullYear();
     })();
 
-    /* ---------- Live GitHub recent activity ---------- */
-    (function () {
-      const list = document.getElementById('ghEvents');
-      if (!list) return;
-
-      const USER = 'vipi-n';
-      const ICONS = {
-        push: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.5A2.5 2.5 0 0 1 3.5 0h8.75a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0V1.5h-8a1 1 0 0 0-1 1v6.708A2.49 2.49 0 0 1 3.5 9h3.25a.75.75 0 0 1 0 1.5H3.5a1 1 0 0 0 0 2h5.75a.75.75 0 0 1 0 1.5H3.5A2.5 2.5 0 0 1 1 11.5Zm13.273 6.61a.75.75 0 0 1 1.06 0l2.116 2.117a.75.75 0 0 1 0 1.06l-2.116 2.117a.75.75 0 0 1-1.061-1.06l.838-.84H10.75a.75.75 0 0 1 0-1.5h4.36l-.837-.84a.75.75 0 0 1 0-1.06Z"/></svg>',
-        pull: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"/></svg>',
-        issue: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"/></svg>',
-        star: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>',
-        fork: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"/></svg>',
-        create: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .4-.2l1.45 1.087a.25.25 0 0 1 0 .4L5.4 14.625a.25.25 0 0 1-.4-.2Z"/></svg>',
-        default: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>'
+    (() => {
+      const devicon = (name) => `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-original.svg`;
+      const icons = {
+        'Spring Boot': { src: devicon('spring') },
+        'Microservices': { text: 'MS' },
+        'REST APIs': { text: 'API' },
+        'gRPC': { text: 'RPC' },
+        'JUnit': { src: devicon('junit') },
+        'Apache Kafka': { src: devicon('apachekafka') },
+        'NATS': { src: devicon('nats') },
+        'Apache Spark': { src: devicon('apachespark') },
+        'Etcd': { src: devicon('etcd') },
+        'Docker': { src: devicon('docker') },
+        'Kubernetes': { src: devicon('kubernetes') },
+        'Jenkins': { src: devicon('jenkins') },
+        'VMware vSphere': { src: devicon('vmware') },
+        'Splunk': { src: devicon('splunk') },
+        'Prometheus': { src: devicon('prometheus') },
+        'Grafana': { src: devicon('grafana') },
+        'GitHub': { src: devicon('github') },
+        'Jira': { src: devicon('jira') },
+        'Data Structures': { text: 'DS' },
+        'Algorithms': { text: 'ALG' },
+        'System Design': { text: 'SYS' },
+        'Event-driven architecture': { text: 'EDA' },
+        'Codex': { svg: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5 14.2 9.8 21.5 12l-7.3 2.2L12 21.5l-2.2-7.3L2.5 12l7.3-2.2L12 2.5Z" fill="#60a5fa"/><circle cx="12" cy="12" r="2.3" fill="#fff"/></svg>', fallback: 'AI' },
+        'ChatGPT': { svg: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 4.5h11A3.5 3.5 0 0 1 21 8v4a3.5 3.5 0 0 1-3.5 3.5h-6.2L6 19v-3.5h-.5A3.5 3.5 0 0 1 2 12V8a3.5 3.5 0 0 1 3.5-3.5Z" fill="#60a5fa"/><path d="M7 9.3h10M7 12.2h6" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>', fallback: 'GPT' },
+        'Claude': { src: 'https://cdn.simpleicons.org/claude', fallback: 'C' },
+        'Cursor': { src: 'https://cdn.simpleicons.org/cursor', fallback: 'CU' },
+        'Copilot': { src: 'https://cdn.simpleicons.org/githubcopilot', fallback: 'CP' },
+        'CodeRabbit': { src: 'https://cdn.simpleicons.org/coderabbit', fallback: 'CR' },
+        'MCP': { src: 'https://cdn.simpleicons.org/modelcontextprotocol', fallback: 'MCP' },
+        'Linux / Unix': { src: devicon('linux') },
+        'macOS': { src: devicon('apple') },
+        'Windows': { src: devicon('windows8') }
       };
-
-      const escape = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
-
-      const timeAgo = (iso) => {
-        const s = (Date.now() - new Date(iso).getTime()) / 1000;
-        if (s < 60) return 'just now';
-        if (s < 3600) return Math.floor(s / 60) + 'm ago';
-        if (s < 86400) return Math.floor(s / 3600) + 'h ago';
-        if (s < 86400 * 30) return Math.floor(s / 86400) + 'd ago';
-        if (s < 86400 * 365) return Math.floor(s / (86400 * 30)) + 'mo ago';
-        return Math.floor(s / (86400 * 365)) + 'y ago';
-      };
-
-      const describe = (e) => {
-        const repo = e.repo?.name || '';
-        const repoUrl = `https://github.com/${repo}`;
-        switch (e.type) {
-          case 'PushEvent': {
-            const commits = e.payload?.commits || [];
-            const msg = commits[commits.length - 1]?.message?.split('\n')[0] || '';
-            return { icon: 'push', action: `Pushed ${commits.length} commit${commits.length === 1 ? '' : 's'} to`, repo, repoUrl, msg };
-          }
-          case 'PullRequestEvent':
-            return { icon: 'pull', action: `${e.payload?.action || 'Opened'} pull request in`, repo, repoUrl, msg: e.payload?.pull_request?.title || '' };
-          case 'IssuesEvent':
-            return { icon: 'issue', action: `${e.payload?.action || 'Opened'} issue in`, repo, repoUrl, msg: e.payload?.issue?.title || '' };
-          case 'IssueCommentEvent':
-            return { icon: 'issue', action: 'Commented on issue in', repo, repoUrl, msg: e.payload?.issue?.title || '' };
-          case 'PullRequestReviewEvent':
-          case 'PullRequestReviewCommentEvent':
-            return { icon: 'pull', action: 'Reviewed pull request in', repo, repoUrl, msg: e.payload?.pull_request?.title || '' };
-          case 'WatchEvent':
-            return { icon: 'star', action: 'Starred', repo, repoUrl, msg: '' };
-          case 'ForkEvent':
-            return { icon: 'fork', action: 'Forked', repo, repoUrl, msg: '' };
-          case 'CreateEvent': {
-            const ref = e.payload?.ref_type || 'something';
-            return { icon: 'create', action: `Created ${ref} in`, repo, repoUrl, msg: e.payload?.ref || '' };
-          }
-          case 'DeleteEvent':
-            return { icon: 'create', action: `Deleted ${e.payload?.ref_type || ''} in`, repo, repoUrl, msg: e.payload?.ref || '' };
-          default:
-            return { icon: 'default', action: e.type.replace('Event', ''), repo, repoUrl, msg: '' };
+      document.querySelectorAll('.skill-card .tag').forEach((tag) => {
+        const icon = icons[tag.textContent.trim()];
+        if (!icon) return;
+        const mark = document.createElement(icon.svg ? 'span' : icon.src ? 'img' : 'span');
+        mark.className = `tag-logo${icon.text ? ' text-logo' : ''}${icon.svg ? ' svg-logo' : ''}`;
+        if (icon.svg) {
+          mark.innerHTML = icon.svg;
+        } else if (icon.src) {
+          mark.src = icon.src;
+          mark.alt = '';
+          mark.loading = 'lazy';
+          mark.onerror = () => {
+            const fallback = document.createElement('span');
+            fallback.className = 'tag-logo text-logo';
+            fallback.textContent = icon.fallback || '';
+            mark.replaceWith(fallback);
+          };
         }
-      };
+        else mark.textContent = icon.text;
+        tag.classList.add('tag-with-logo');
+        tag.prepend(mark);
+      });
+    })();
 
-      fetch(`https://api.github.com/users/${USER}/events/public?per_page=30`)
-        .then((r) => {
-          if (!r.ok) throw new Error('Network error: ' + r.status);
-          return r.json();
-        })
-        .then((events) => {
-          if (!Array.isArray(events) || events.length === 0) {
-            list.innerHTML = '<li class="gh-error">No recent public activity found.</li>';
-            return;
-          }
-          const items = events.slice(0, 8).map((e) => {
-            const d = describe(e);
-            return `
-              <li>
-                <span class="ev-icon" aria-hidden="true">${ICONS[d.icon] || ICONS.default}</span>
-                <span class="ev-body">
-                  <span class="ev-action">${escape(d.action)}</span>
-                  <a class="ev-repo" href="${escape(d.repoUrl)}" target="_blank" rel="noopener noreferrer">${escape(d.repo)}</a>
-                  ${d.msg ? `<span class="ev-msg" title="${escape(d.msg)}">${escape(d.msg)}</span>` : ''}
-                </span>
-                <span class="ev-time">${escape(timeAgo(e.created_at))}</span>
-              </li>`;
-          }).join('');
-          list.innerHTML = items;
-        })
-        .catch(() => {
-          list.innerHTML = '<li class="gh-error">Couldn\'t load recent activity right now.</li>';
-        });
+    (() => {
+      const list = document.getElementById('ghEvents');
+      const user = 'vipi-n';
+      const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+      const ago = (date) => { const seconds = (Date.now() - new Date(date).getTime()) / 1000; if (seconds < 60) return 'just now'; if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`; if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`; if (seconds < 2592000) return `${Math.floor(seconds / 86400)}d ago`; return `${Math.floor(seconds / 2592000)}mo ago`; };
+      const describe = (event) => { const repo = event.repo?.name || ''; const payload = event.payload || {}; const messages = { PushEvent: `Pushed ${payload.commits?.length || 0} commit(s) to`, PullRequestEvent: `${payload.action || 'Opened'} pull request in`, IssuesEvent: `${payload.action || 'Opened'} issue in`, IssueCommentEvent: 'Commented on issue in', PullRequestReviewEvent: 'Reviewed pull request in', PullRequestReviewCommentEvent: 'Reviewed pull request in', WatchEvent: 'Starred', ForkEvent: 'Forked', CreateEvent: `Created ${payload.ref_type || 'something'} in` }; const message = payload.commits?.at(-1)?.message?.split('\n')[0] || payload.pull_request?.title || payload.issue?.title || ''; return { action: messages[event.type] || event.type.replace('Event', ''), repo, message }; };
+      fetch(`https://api.github.com/users/${user}/events/public?per_page=8`).then((response) => { if (!response.ok) throw new Error('GitHub request failed'); return response.json(); }).then((events) => { if (!Array.isArray(events) || !events.length) throw new Error('No activity'); list.innerHTML = events.map((event) => { const item = describe(event); return `<li><span class="ev-icon">◆</span><span><span>${escapeHtml(item.action)} </span><a class="ev-repo" href="https://github.com/${escapeHtml(item.repo)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.repo)}</a>${item.message ? `<span class="ev-msg">${escapeHtml(item.message)}</span>` : ''}</span><span class="ev-time">${ago(event.created_at)}</span></li>`; }).join(''); }).catch(() => { list.innerHTML = '<li class="gh-error">Recent activity is unavailable right now. View my <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer">GitHub profile</a> for the latest updates.</li>'; });
     })();
   </script>
-
 </body>
 </html>
