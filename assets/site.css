@@ -2,9 +2,9 @@
   color-scheme: light;
   --bg: #fafafa;
   --ink: #171717;
-  --muted: #6b6b6b;
-  --subtle: #888;
-  --faint: #999;
+  --muted: #595d63;
+  --subtle: #71767e;
+  --faint: #7b8088;
   --line: #e6e6e6;
   --line-strong: #d6d6d6;
   --surface: rgba(255, 255, 255, .72);
@@ -20,9 +20,9 @@
   color-scheme: dark;
   --bg: #0f1115;
   --ink: #f2f3f5;
-  --muted: #a4a8b0;
-  --subtle: #9297a0;
-  --faint: #7d828b;
+  --muted: #b2b6be;
+  --subtle: #a0a5ae;
+  --faint: #9197a0;
   --line: #292d35;
   --line-strong: #3a3f49;
   --surface: rgba(24, 27, 33, .76);
@@ -37,12 +37,13 @@
 * { box-sizing: border-box; }
 html { background: var(--bg); }
 body { margin: 0; background: var(--bg) !important; color: var(--ink) !important; font-family: Manrope, sans-serif; transition: background-color .25s ease, color .25s ease; }
-.text-muted { color: var(--muted) !important; }
+.text-muted { color: var(--muted) !important; font-weight: 500; }
+main > header > p:last-child { font-weight: 500; }
 .dot-fade { position: absolute; inset: 0 0 auto; height: 260px; overflow: hidden; pointer-events: none; background-image: radial-gradient(var(--dots) .8px, transparent .8px); background-size: 8px 8px; mask-image: linear-gradient(to bottom, black, transparent); }
 .dot-fade-tall { height: 520px; }
 .content-section { margin-top: 72px; }
 .content-section h2 { margin: 0 0 24px; font-size: 19px; font-weight: 800; letter-spacing: -.025em; }
-.prose-copy { display: grid; gap: 20px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+.prose-copy { display: grid; gap: 20px; color: var(--muted); font-size: 15px; font-weight: 500; line-height: 1.9; }
 .prose-copy p { margin: 0; }
 .principle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .principle-grid article { min-height: 180px; padding: 19px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
@@ -75,7 +76,7 @@ body { margin: 0; background: var(--bg) !important; color: var(--ink) !important
 :root[data-theme="dark"] img[src*="/171717"] { filter: invert(1) brightness(1.25); }
 .simple-row strong, .simple-row small { display: block; }
 .simple-row strong { font-size: 14px; }
-.simple-row small { margin-top: 2px; color: var(--muted); font-size: 11px; }
+.simple-row small { margin-top: 2px; color: var(--muted); font-size: 11px; font-weight: 500; }
 .simple-row time { color: var(--subtle); font: 10px "DM Mono", monospace; }
 .static-row { cursor: default; }
 .skill-group { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 21px 0; border-top: 1px solid var(--line); }
