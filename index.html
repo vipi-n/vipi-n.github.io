@@ -1,403 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Vipin Kumar - Backend Engineer with 8+ years of experience building scalable microservices and distributed systems." />
-  <meta name="author" content="Vipin Kumar" />
-  <meta name="theme-color" content="#0f172a" />
-  <meta property="og:title" content="Vipin Kumar - Backend Engineer" />
-  <meta property="og:description" content="Backend Engineer building resilient microservices, distributed systems, and enterprise platforms." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://vipi-n.github.io/" />
-  <title>Vipin Kumar | Backend Engineer</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='25' font-weight='700' fill='white'%3EVK%3C/text%3E%3C/svg%3E" />
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232563eb'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='25' font-weight='700' fill='white'%3EVK%3C/text%3E%3C/svg%3E" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg: #ffffff;
-      --bg-soft: #f8fafc;
-      --surface: #ffffff;
-      --surface-2: #f1f5f9;
-      --border: #e2e8f0;
-      --border-strong: #cbd5e1;
-      --text: #0f172a;
-      --text-muted: #475569;
-      --text-soft: #64748b;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-      --accent-soft: #dbeafe;
-      --tag-bg: #f1f5f9;
-      --tag-text: #334155;
-      --shadow: 0 4px 12px rgba(15, 23, 42, .05);
-      --shadow-lg: 0 20px 40px rgba(15, 23, 42, .08);
-      --radius: 14px;
-      --radius-sm: 10px;
-      --max-w: 1080px;
-      --max-w-narrow: 800px;
-    }
-
-    [data-theme="dark"] {
-      --bg: #0a0f1c;
-      --bg-soft: #0f172a;
-      --surface: #111a2e;
-      --surface-2: #0f172a;
-      --border: #1e293b;
-      --border-strong: #334155;
-      --text: #f1f5f9;
-      --text-muted: #cbd5e1;
-      --text-soft: #94a3b8;
-      --accent: #60a5fa;
-      --accent-hover: #93c5fd;
-      --accent-soft: #1e3a8a40;
-      --tag-bg: #1e293b;
-      --tag-text: #cbd5e1;
-      --shadow: 0 4px 12px rgba(0, 0, 0, .4);
-      --shadow-lg: 0 20px 40px rgba(0, 0, 0, .5);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      transition: background .2s ease, color .2s ease;
-    }
-    a { color: var(--accent); text-decoration: none; transition: color .15s ease; }
-    a:hover { color: var(--accent-hover); }
-    .mono, code { font-family: "JetBrains Mono", ui-monospace, monospace; }
-    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
-    .narrow { max-width: var(--max-w-narrow); margin: 0 auto; padding: 0 24px; }
-
-    nav {
-      position: sticky; top: 0; z-index: 10;
-      border-bottom: 0;
-      background: color-mix(in srgb, var(--bg) 84%, transparent);
-      backdrop-filter: saturate(180%) blur(14px);
-    }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 24px; }
-    .logo { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-size: 15px; font-weight: 700; }
-    .logo-mark { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 8px; background: linear-gradient(135deg, var(--accent), #8b5cf6); color: white; font-size: 13px; font-weight: 800; }
-    .nav-links { display: flex; align-items: center; gap: 22px; }
-    .nav-links a { color: var(--text-muted); font-size: 14px; font-weight: 500; }
-    .nav-links a:hover { color: var(--text); }
-    .icon-btn { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--text-muted); cursor: pointer; }
-    .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
-    .icon-btn svg { width: 16px; height: 16px; }
-
-    .hero { position: relative; overflow: hidden; padding: 84px 0 70px; }
-    .hero::before { content: ""; position: absolute; top: -210px; right: -190px; width: 520px; height: 520px; background: radial-gradient(circle, var(--accent-soft), transparent 70%); opacity: .65; pointer-events: none; }
-    .hero-inner { position: relative; }
-    .greeting { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-2); color: var(--text-muted); font-size: 13px; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px #22c55e25; }
-    h1 { max-width: 780px; margin-bottom: 18px; font-size: clamp(36px, 6vw, 58px); font-weight: 800; letter-spacing: -.04em; line-height: 1.08; }
-    h1 .accent { background: linear-gradient(135deg, var(--accent), #8b5cf6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .lead { max-width: 700px; margin-bottom: 28px; color: var(--text-muted); font-size: clamp(16px, 2vw, 19px); }
-    .hero-cta, .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border: 1px solid var(--border-strong); border-radius: 10px; background: var(--surface); color: var(--text); font-size: 14px; font-weight: 600; }
-    .btn:hover { transform: translateY(-1px); border-color: var(--accent); color: var(--accent); }
-    .btn-primary { border-color: var(--text); background: var(--text); color: var(--bg); }
-    .btn-primary:hover { border-color: var(--accent); background: var(--accent); color: #fff; }
-    .btn svg { width: 15px; height: 15px; }
-    .hero-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
-    .stat { padding: 10px 14px; border: 1px solid var(--border); border-radius: 9px; background: color-mix(in srgb, var(--surface) 72%, transparent); color: var(--text-muted); font-size: 13px; }
-    .stat strong { color: var(--text); font-size: 16px; margin-right: 5px; }
-
-    section.block { padding: 64px 0; border-top: 0; }
-    .eyebrow { display: inline-block; margin-bottom: 10px; color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
-    .section-heading { margin-bottom: 14px; font-size: clamp(26px, 3.5vw, 34px); font-weight: 700; letter-spacing: -.025em; line-height: 1.2; }
-    .section-sub { max-width: 650px; margin-bottom: 36px; color: var(--text-muted); }
-    .about p { margin-bottom: 16px; color: var(--text-muted); font-size: 17px; line-height: 1.75; }
-    .about p:last-child { margin-bottom: 0; }
-
-    .skills-grid, .oss-grid, .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 16px; }
-    .skill-card, .oss-card, .edu-card, .gh-panel { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
-    .skill-card { padding: 20px; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
-    .skill-card:hover, .oss-card:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: var(--shadow); }
-    .skill-card h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 14px; }
-    .skill-icon, .oss-mark { display: grid; place-items: center; border-radius: 7px; background: var(--accent-soft); color: var(--accent); font-weight: 700; }
-    .skill-icon { width: 28px; height: 28px; font-size: 14px; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { padding: 4px 9px; border-radius: 6px; background: var(--tag-bg); color: var(--tag-text); font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 500; }
-    .tech-tag { display: inline-flex; align-items: center; gap: 7px; padding: 4px 9px; border-radius: 6px; background: var(--tag-bg); color: var(--tag-text); font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 500; }
-    .tech-logo { width: 18px; height: 18px; object-fit: contain; flex: 0 0 18px; }
-    .db-logo { display: grid; place-items: center; border-radius: 4px; background: #3b82f6; color: #fff; font-family: Inter, sans-serif; font-size: 8px; font-weight: 800; letter-spacing: -.04em; }
-    .tag-with-logo { display: inline-flex; align-items: center; gap: 7px; }
-    .tag-logo { width: 16px; height: 16px; object-fit: contain; flex: 0 0 16px; }
-    .tag-logo.svg-logo { display: block; }
-    .tag-logo.svg-logo svg { display: block; width: 100%; height: 100%; }
-    .tag-logo.text-logo { display: grid; place-items: center; border-radius: 4px; background: var(--accent); color: #fff; font-family: Inter, sans-serif; font-size: 7px; font-weight: 800; letter-spacing: -.04em; }
-
-    .timeline { position: relative; padding-left: 28px; border-left: 2px solid var(--border); }
-    .tl-item { position: relative; padding-bottom: 36px; }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-item::before { content: ""; position: absolute; top: 6px; left: -36px; width: 14px; height: 14px; border: 2px solid var(--accent); border-radius: 50%; background: var(--bg); }
-    .tl-item.current::before { background: var(--accent); box-shadow: 0 0 0 5px var(--accent-soft); }
-    .tl-date { display: block; margin-bottom: 6px; color: var(--text-soft); font-family: "JetBrains Mono", monospace; font-size: 12.5px; }
-    .tl-title { margin-bottom: 2px; color: var(--text); font-size: 18px; font-weight: 700; }
-    .tl-company { margin-bottom: 10px; color: var(--text-muted); font-size: 14.5px; }
-    .sep { margin: 0 6px; color: var(--text-soft); }
-    .tl-desc { list-style: none; }
-    .tl-desc li { position: relative; margin-bottom: 6px; padding-left: 18px; color: var(--text-muted); font-size: 14.5px; line-height: 1.65; }
-    .tl-desc li::before { content: ""; position: absolute; top: 11px; left: 4px; width: 5px; height: 5px; border-radius: 50%; background: var(--text-soft); }
-
-    .oss-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .oss-card { display: block; padding: 22px; color: var(--text); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
-    .oss-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .oss-mark { width: 42px; height: 42px; border-radius: 11px; background: linear-gradient(135deg, var(--accent-soft), #ede9fe); font-size: 18px; }
-    .oss-card h3 { font-size: 17px; }
-    .oss-handle { color: var(--text-soft); font-family: "JetBrains Mono", monospace; font-size: 12px; }
-    .oss-card p { margin-bottom: 14px; color: var(--text-muted); font-size: 14px; }
-    .oss-link { font-size: 13px; font-weight: 600; }
-    .oss-note { margin-top: 16px; color: var(--text-soft); font-size: 13px; }
-
-    .gh-panel { margin-bottom: 16px; padding: 20px; overflow-x: auto; }
-    .gh-panel img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
-    .gh-panel.contrib img { width: 100%; min-width: 600px; }
-    .gh-events { display: grid; gap: 8px; list-style: none; }
-    .gh-events li { display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; align-items: start; padding: 9px 10px; border-radius: 8px; color: var(--text-muted); font-size: 14px; }
-    .gh-events li:hover { background: var(--surface-2); }
-    .ev-icon { color: var(--accent); }
-    .ev-repo { font-family: "JetBrains Mono", monospace; font-size: 13px; }
-    .ev-msg { display: block; overflow: hidden; color: var(--text-soft); font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
-    .ev-time { color: var(--text-soft); font-family: "JetBrains Mono", monospace; font-size: 12px; white-space: nowrap; }
-    .gh-loading, .gh-error { display: block !important; padding: 12px !important; text-align: center; }
-    .gh-img-dark { display: none !important; }
-    [data-theme="dark"] .gh-img-light { display: none !important; }
-    [data-theme="dark"] .gh-img-dark { display: block !important; }
-
-    .edu-card { padding: 20px; }
-    .edu-card .tl-date { margin-bottom: 8px; }
-    .edu-card .tl-title { font-size: 16px; }
-    .edu-card .tl-company { margin-bottom: 0; font-size: 14px; }
-    .contact-card { padding: 40px; border: 1px solid var(--border); border-radius: var(--radius); background: linear-gradient(135deg, var(--surface), var(--surface-2)); text-align: center; }
-    .contact-card h2 { margin-bottom: 12px; font-size: 28px; letter-spacing: -.02em; }
-    .contact-card p { max-width: 520px; margin: 0 auto 24px; color: var(--text-muted); }
-    .contact-links { justify-content: center; }
-    footer { padding: 32px 24px 48px; border-top: 0; color: var(--text-soft); font-size: 13.5px; text-align: center; }
-    .heart { color: #ef4444; }
-
-    @media (max-width: 640px) {
-      .nav-links a:not(.icon-btn) { display: none; }
-      .nav-inner { padding: 12px 18px; }
-      .hero { padding: 56px 0 48px; }
-      section.block { padding: 48px 0; }
-      .contact-card { padding: 28px 20px; }
-      .ev-time { display: none; }
-    }
-    @media print {
-      nav, footer, .hero-cta, .contact-links, .gh-panel { display: none !important; }
-      body { background: #fff; color: #000; }
-      section.block { padding: 16px 0; border: 0; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Vipin Kumar — Backend Engineer with 8+ years of experience building scalable microservices and distributed systems.">
+<meta name="theme-color" content="#fafafa"><script>(()=>{try{const t=localStorage.getItem('portfolio-theme');document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(_){}})()</script>
+  <meta property="og:title" content="Vipin Kumar — Backend Engineer">
+  <meta property="og:description" content="Building resilient microservices, distributed systems, and enterprise platforms.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vipi-n.github.io/">
+  <meta property="og:image" content="https://vipi-n.github.io/assets/og.png">
+  <title>Vipin Kumar — Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{paper:'#fafafa',ink:'#171717',muted:'#6b6b6b',line:'#e6e6e6'},fontFamily:{sans:['Manrope','sans-serif'],mono:['DM Mono','monospace']}}}}</script>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/app.js" defer></script>
 </head>
+<body class="bg-paper text-ink antialiased selection:bg-black selection:text-white">
+  <div class="dot-fade" aria-hidden="true"></div>
+  <main class="relative mx-auto max-w-3xl px-6 pb-40 pt-24 sm:pt-28">
+    <header class="reveal">
+      <p class="font-mono text-xs uppercase tracking-[.16em] text-muted">Backend Engineer · Bengaluru</p>
+      <h1 class="mt-5 text-4xl font-bold tracking-[-.055em] sm:text-6xl">Hi, I’m Vipin Kumar.</h1>
+      <p class="mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">I design and develop scalable microservices, distributed systems, and enterprise platforms, with a current focus on network automation.</p>
+    </header>
 
-<body>
-  <nav aria-label="Primary">
-    <div class="container nav-inner">
-      <a class="logo" href="#top" aria-label="Home"><span class="logo-mark">VK</span><span>Vipin Kumar</span></a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#opensource">Open source</a>
-        <a href="#contact">Contact</a>
-        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        </button>
+    <section class="content-section reveal" aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <div class="prose-copy">
+        <p>I’m a backend engineer with 8+ years of experience building systems across real-time banking, payment processing, and network automation.</p>
+        <p>I enjoy event-driven architectures, the hard parts of distributed systems, and code that other engineers find easy to work with. Reliability, clean APIs, maintainability, and software that holds up under real production load are core priorities.</p>
+        <p>AI-assisted development tools and agentic workflows help me accelerate delivery, improve code quality, streamline reviews, and automate testing.</p>
       </div>
-    </div>
+    </section>
+
+    <section class="content-section reveal" aria-labelledby="experience-heading">
+      <div class="section-title-row"><h2 id="experience-heading">Work Experience</h2><a href="work.html">View complete history</a></div>
+      <div class="simple-list">
+        <a class="simple-row" href="work.html#cisco"><span class="initial-logo"><img src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Cisco logo"></span><span><strong>Cisco Systems</strong><small>Software Engineer</small></span><time>Mar 2023 — Present</time></a>
+        <a class="simple-row" href="work.html#worldpay"><span class="initial-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/83/FIS_logo.svg" alt="FIS logo"></span><span><strong>FIS Global (Worldpay)</strong><small>Software Engineer II</small></span><time>Aug 2021 — Feb 2023</time></a>
+        <a class="simple-row" href="work.html#tcs"><span class="initial-logo"><img src="https://cdn.simpleicons.org/tcs/EE3984" alt="TCS logo"></span><span><strong>Tata Consultancy Services</strong><small>Systems Engineer</small></span><time>Mar 2018 — Aug 2021</time></a>
+      </div>
+    </section>
+
+    <section class="content-section reveal" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <div class="skill-group"><h3>Backend & APIs</h3><div><span><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="">Java</span><span><img src="https://cdn.simpleicons.org/springboot/6DB33F" alt="">Spring Boot</span><span><img src="https://api.iconify.design/lucide:boxes.svg?color=%236f7785" alt="">Microservices</span><span><img src="https://api.iconify.design/lucide:braces.svg?color=%236f7785" alt="">REST APIs</span><span><img src="https://api.iconify.design/logos:grpc.svg" alt="">gRPC</span><span><img src="https://cdn.simpleicons.org/go/00ADD8" alt="">Go</span><span><img src="https://api.iconify.design/lucide:database.svg?color=%236f7785" alt="">SQL</span></div></div>
+      <div class="skill-group"><h3>Messaging & Data</h3><div><span><img src="https://cdn.simpleicons.org/apachekafka/231F20/FFFFFF" alt="">Apache Kafka</span><span><img src="https://cdn.simpleicons.org/natsdotio/27AAE1" alt="">NATS</span><span><img src="https://cdn.simpleicons.org/etcd/419EDA" alt="">Etcd</span><span><img src="https://cdn.simpleicons.org/apachespark/E25A1C" alt="">Apache Spark</span><span><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="">PostgreSQL</span></div></div>
+      <div class="skill-group"><h3>Infrastructure & Observability</h3><div><span><img src="https://cdn.simpleicons.org/docker/2496ED" alt="">Docker</span><span><img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="">Kubernetes</span><span><img src="https://cdn.simpleicons.org/jenkins/D24939" alt="">Jenkins</span><span><img src="https://cdn.simpleicons.org/prometheus/E6522C" alt="">Prometheus</span><span><img src="https://cdn.simpleicons.org/grafana/F46800" alt="">Grafana</span><span><img src="https://cdn.simpleicons.org/splunk/000000/FFFFFF" alt="">Splunk</span></div></div>
+      <div class="skill-group"><h3>AI-assisted Engineering</h3><div><span><img src="https://api.iconify.design/lucide:bot.svg?color=%236f7785" alt="">Custom AI Agents</span><span><img src="https://api.iconify.design/logos:openai-icon.svg" alt="">ChatGPT</span><span><img src="https://api.iconify.design/simple-icons:openai.svg?color=%236f7785" alt="">Codex</span><span><img src="https://cdn.simpleicons.org/claude/D97757" alt="">Claude</span><span><img src="https://cdn.simpleicons.org/githubcopilot/000000/FFFFFF" alt="">GitHub Copilot</span><span><img src="https://cdn.simpleicons.org/cursor/000000/FFFFFF" alt="">Cursor</span><span><img src="https://cdn.simpleicons.org/modelcontextprotocol/000000/FFFFFF" alt="">MCP</span></div></div>
+    </section>
+
+    <section class="content-section reveal" aria-labelledby="github-heading">
+      <div class="section-title-row"><h2 id="github-heading">GitHub Contributions</h2><a href="https://github.com/vipi-n" target="_blank" rel="noreferrer">View profile</a></div>
+      <div class="contribution-card">
+        <div class="contribution-profile">
+          <span class="initial-logo"><img src="https://cdn.simpleicons.org/github/171717" alt="GitHub logo"></span>
+          <span><strong>@vipi-n</strong><small>Public contribution activity from the last year</small></span>
+          <strong class="contribution-total" data-contribution-total aria-live="polite">Loading…</strong>
+        </div>
+        <div class="contribution-scroll">
+          <div class="contribution-calendar" data-contribution-calendar aria-busy="true"></div>
+        </div>
+        <div class="contribution-legend" aria-hidden="true"><span>Less</span><i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i><span>More</span></div>
+        <div class="activity-block">
+          <div class="activity-title"><h3>Recent activity</h3><span>Latest 5 public events</span></div>
+          <div class="activity-list" data-github-activity aria-busy="true"><p class="activity-loading">Loading recent activity…</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section reveal" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <div class="simple-row static-row"><span class="initial-logo"><img src="https://assets.kreeti.com/assets/recruitment/TIG_Logo-7d66393c9deb5bd6dfb63b18eee23323a275591dcaac7b65157211eafd733b40.png" alt="Techno India Group logo"></span><span><strong>Techno India Salt Lake</strong><small>Bachelor of Technology in ECE</small></span></div>
+    </section>
+  </main>
+
+  <nav class="dock" aria-label="Portfolio navigation">
+    <a href="index.html" aria-current="page">Home</a><a href="work.html">Experience</a><a href="projects.html">Open source</a><a href="about.html">About</a><span class="dock-separator"></span><a class="icon-link" href="https://github.com/vipi-n" target="_blank" rel="noreferrer" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/171717" alt=""></a><a class="icon-link" href="https://www.linkedin.com/in/vipi-n/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt=""></a><a class="icon-link" href="https://leetcode.com/u/vipi-n/" target="_blank" rel="noreferrer" aria-label="LeetCode"><img src="https://cdn.simpleicons.org/leetcode/171717" alt=""></a>
   </nav>
-
-  <a id="top"></a>
-  <header class="hero">
-    <div class="narrow hero-inner">
-      <span class="greeting"><span class="dot"></span> Backend Engineer · 8+ years of experience</span>
-      <h1>Hey, I'm Vipin <span class="accent">- a Backend Engineer</span> building resilient systems at scale.</h1>
-      <p class="lead">I design and develop scalable microservices, distributed systems, and enterprise platforms. Currently at Cisco Systems, working on the Crosswork Network Controller after building systems across network automation, payments, and banking.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Get in touch</a>
-        <a class="btn" href="https://www.linkedin.com/in/vipi-n/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="block" id="about" aria-labelledby="about-heading">
-    <div class="narrow about">
-      <span class="eyebrow">// about</span>
-      <h2 class="section-heading" id="about-heading">A bit about me</h2>
-      <p>I'm a backend engineer with 8+ years of experience designing scalable microservices, distributed systems, and enterprise platforms. My journey started with real-time banking data services at TCS, moved through payment processing at FIS Global (Worldpay), and now focuses on network automation at Cisco.</p>
-      <p>Focus areas include event-driven architectures, the hard parts of distributed systems, and code that other engineers find easy to work with. Reliability, clean APIs, maintainability, and software that holds up under real production load are core priorities.</p>
-      <p>AI-assisted development tools and agentic workflows help accelerate delivery, improve code quality, streamline reviews, automate testing, and increase developer productivity.</p>
-    </div>
-  </section>
-
-  <section class="block" id="skills" aria-labelledby="skills-heading">
-    <div class="narrow">
-      <span class="eyebrow">// skills</span>
-      <h2 class="section-heading" id="skills-heading">Tools I work with</h2>
-      <p class="section-sub">A production-focused mix of languages, frameworks, messaging systems, platforms, and engineering practices.</p>
-      <div class="skills-grid">
-        <div class="skill-card"><h3><span class="skill-icon">&lt;/&gt;</span> Languages &amp; data</h3><div class="skill-tags"><span class="tech-tag"><img class="tech-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="" loading="lazy" />Java</span><span class="tech-tag"><span class="tech-logo db-logo" aria-hidden="true">SQL</span>SQL</span><span class="tech-tag"><img class="tech-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="" loading="lazy" />PostgreSQL</span><span class="tech-tag"><img class="tech-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg" alt="" loading="lazy" />Go</span></div></div>
-        <div class="skill-card"><h3><span class="skill-icon">⚙</span> Frameworks &amp; APIs</h3><div class="skill-tags"><span class="tag">Spring Boot</span><span class="tag">Microservices</span><span class="tag">REST APIs</span><span class="tag">gRPC</span><span class="tag">JUnit</span></div></div>
-        <div class="skill-card"><h3><span class="skill-icon">↯</span> Messaging &amp; streaming</h3><div class="skill-tags"><span class="tag">Apache Kafka</span><span class="tag">NATS</span><span class="tag">Apache Spark</span><span class="tag">Etcd</span></div></div>
-        <div class="skill-card"><h3><span class="skill-icon">☁</span> DevOps &amp; platforms</h3><div class="skill-tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Jenkins</span><span class="tag">VMware vSphere</span></div></div>
-        <div class="skill-card"><h3><span class="skill-icon">⌖</span> Observability &amp; tools</h3><div class="skill-tags"><span class="tag">Splunk</span><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">GitHub</span><span class="tag">Jira</span></div></div>
-        <div class="skill-card"><h3><span class="skill-icon">◇</span> Core engineering</h3><div class="skill-tags"><span class="tag">Data Structures</span><span class="tag">Algorithms</span><span class="tag">System Design</span><span class="tag">Event-driven architecture</span></div></div>
-        <div class="skill-card"><h3><span class="skill-icon">✦</span> AI-assisted development</h3><div class="skill-tags"><span class="tag">ChatGPT</span><span class="tag">Codex</span><span class="tag">Claude</span><span class="tag">Cursor</span><span class="tag">Copilot</span><span class="tag">CodeRabbit</span><span class="tag">MCP</span></div></div>
-        <div class="skill-card"><h3><span class="skill-icon">▣</span> Operating systems</h3><div class="skill-tags"><span class="tag">Linux / Unix</span><span class="tag">macOS</span><span class="tag">Windows</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="experience" aria-labelledby="experience-heading">
-    <div class="narrow">
-      <span class="eyebrow">// experience</span>
-      <h2 class="section-heading" id="experience-heading">Where I've worked</h2>
-      <p class="section-sub">End-to-end product development across network automation, payments, and banking.</p>
-      <div class="timeline">
-        <div class="tl-item current"><span class="tl-date">Mar 2023 - Present</span><h3 class="tl-title">Software Engineer</h3><div class="tl-company">Cisco Systems <span class="sep">·</span> Bengaluru, KA</div><ul class="tl-desc"><li>Develop and manage solutions for Cisco's Crosswork Network Controller, a sophisticated platform comprising multiple microservices.</li><li>Deliver end-to-end features with UI, backend, and QA teams; write unit and regression tests, perform code reviews, and provide stakeholder demos.</li><li>Led the redesign of the Common Licensing Management Service (CLMS), simplifying legacy structures and improving customer understanding.</li><li>Facilitated integration of multiple CNC applications with CLMS for consistent licensing workflows across the ecosystem.</li><li>Engineered shared Java utility components integrating Kafka, NATS, and Etcd, improving message handling, fault tolerance, stability, and latency.</li></ul></div>
-        <div class="tl-item"><span class="tl-date">Feb 2023 - Mar 2023</span><h3 class="tl-title">Software Engineer</h3><div class="tl-company">J.P. Morgan <span class="sep">·</span> Bengaluru, KA</div><ul class="tl-desc"><li>Focused on onboarding, domain knowledge acquisition, and familiarization with the team's technology stack and development processes.</li></ul></div>
-        <div class="tl-item"><span class="tl-date">Aug 2021 - Feb 2023</span><h3 class="tl-title">Software Engineer II</h3><div class="tl-company">FIS Global (Worldpay) <span class="sep">·</span> Bengaluru, KA</div><ul class="tl-desc"><li>Designed and developed high-performance payment processing modules using Java, Spring Boot, Apache Kafka, and Apache Spark.</li><li>Delivered multiple features and enhancements for Worldpay, a payment processing platform for merchants.</li></ul></div>
-        <div class="tl-item"><span class="tl-date">Mar 2018 - Aug 2021</span><h3 class="tl-title">Systems Engineer</h3><div class="tl-company">TCS <span class="sep">·</span> Bengaluru, KA</div><ul class="tl-desc"><li>Designed and developed real-time data services using Java, Spring Boot, and Apache Kafka for Nordea Bank.</li><li>Mapped, transformed, and stored client-specific datasets for downstream processing and core banking operations.</li></ul></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="opensource" aria-labelledby="opensource-heading">
-    <div class="narrow">
-      <span class="eyebrow">// open source</span>
-      <h2 class="section-heading" id="opensource-heading">Contributing beyond work</h2>
-      <p class="section-sub">I contribute to open-source communities that sit close to the technologies I enjoy building with.</p>
-      <div class="oss-grid">
-        <a class="oss-card" href="https://github.com/spring-projects" target="_blank" rel="noopener noreferrer"><div class="oss-card-top"><span class="oss-mark">S</span><div><h3>Spring Projects</h3><span class="oss-handle">@spring-projects</span></div></div><p>Open-source work in the Spring ecosystem, supporting the Java and Spring community.</p><span class="oss-link">View community on GitHub →</span></a>
-        <a class="oss-card" href="https://github.com/valkey-io" target="_blank" rel="noopener noreferrer"><div class="oss-card-top"><span class="oss-mark">V</span><div><h3>Valkey</h3><span class="oss-handle">@valkey-io</span></div></div><p>Contributions connected to Valkey and the open-source infrastructure ecosystem.</p><span class="oss-link">View community on GitHub →</span></a>
-      </div>
-      <p class="oss-note">See my <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer">GitHub profile</a> for the latest public activity and contribution history.</p>
-    </div>
-  </section>
-
-  <section class="block" id="github" aria-labelledby="github-heading">
-    <div class="narrow">
-      <span class="eyebrow">// github</span>
-      <h2 class="section-heading" id="github-heading">GitHub activity</h2>
-      <p class="section-sub">A live snapshot of my public coding activity and open-source contributions.</p>
-      <div class="gh-panel"><a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer"><img class="gh-img-light" src="https://github-readme-streak-stats.herokuapp.com/?user=vipi-n&hide_border=true&background=FFFFFF00&stroke=e2e8f0&ring=2563eb&fire=2563eb&currStreakNum=0f172a&sideNums=0f172a&currStreakLabel=2563eb&sideLabels=475569&dates=64748b" alt="Vipin's GitHub streak" loading="lazy" /><img class="gh-img-dark" src="https://github-readme-streak-stats.herokuapp.com/?user=vipi-n&hide_border=true&background=FFFFFF00&stroke=1e293b&ring=60a5fa&fire=60a5fa&currStreakNum=f1f5f9&sideNums=f1f5f9&currStreakLabel=60a5fa&sideLabels=cbd5e1&dates=94a3b8" alt="Vipin's GitHub streak" loading="lazy" /></a></div>
-      <div class="gh-panel contrib"><a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer"><img class="gh-img-light" src="https://ghchart.rshah.org/216e39/vipi-n" alt="Vipin's GitHub contribution graph" loading="lazy" /><img class="gh-img-dark" src="https://ghchart.rshah.org/39d353/vipi-n" alt="Vipin's GitHub contribution graph" loading="lazy" /></a></div>
-      <div class="gh-panel"><h3 style="font-size:14px;margin-bottom:14px">Recent public activity</h3><ul id="ghEvents" class="gh-events" aria-live="polite"><li class="gh-loading">Loading recent activity from GitHub...</li></ul></div>
-    </div>
-  </section>
-
-  <section class="block" aria-labelledby="education-heading">
-    <div class="narrow">
-      <span class="eyebrow">// education</span>
-      <h2 class="section-heading" id="education-heading">Education</h2>
-      <div class="edu-grid">
-        <div class="edu-card"><span class="tl-date">July 2013 - July 2017</span><h3 class="tl-title">Bachelor of Technology in ECE</h3><div class="tl-company">Techno India Salt Lake <span class="sep">·</span> Kolkata, WB</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="contact" aria-labelledby="contact-heading">
-    <div class="narrow"><div class="contact-card"><h2 id="contact-heading">Let's build something together.</h2><p>I'm open to interesting opportunities and good conversations. Connect with me online.</p><div class="contact-links"><a class="btn" href="https://www.linkedin.com/in/vipi-n/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a><a class="btn" href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18.92-.26 1.9-.39 2.88-.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>GitHub</a><a class="btn" href="https://leetcode.com/u/vipi-n/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>LeetCode</a></div></div></div>
-  </section>
-
-  <footer>© <span id="year"></span> Vipin Kumar · Built with <span class="heart" aria-label="love">♥</span> · Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a></footer>
-
-  <script>
-    (() => {
-      const root = document.documentElement;
-      const toggle = document.getElementById('themeToggle');
-      const stored = localStorage.getItem('theme');
-      const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      const applyTheme = (theme) => root.setAttribute('data-theme', theme);
-      applyTheme(stored || preferred);
-      toggle.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        applyTheme(next);
-        localStorage.setItem('theme', next);
-      });
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-
-    (() => {
-      const devicon = (name) => `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-original.svg`;
-      const icons = {
-        'Spring Boot': { src: devicon('spring') },
-        'Microservices': { text: 'MS' },
-        'REST APIs': { text: 'API' },
-        'gRPC': { text: 'RPC' },
-        'JUnit': { src: devicon('junit') },
-        'Apache Kafka': { src: devicon('apachekafka') },
-        'NATS': { src: devicon('nats') },
-        'Apache Spark': { src: devicon('apachespark') },
-        'Etcd': { src: devicon('etcd') },
-        'Docker': { src: devicon('docker') },
-        'Kubernetes': { src: devicon('kubernetes') },
-        'Jenkins': { src: devicon('jenkins') },
-        'VMware vSphere': { src: devicon('vmware') },
-        'Splunk': { src: devicon('splunk') },
-        'Prometheus': { src: devicon('prometheus') },
-        'Grafana': { src: devicon('grafana') },
-        'GitHub': { src: devicon('github') },
-        'Jira': { src: devicon('jira') },
-        'Data Structures': { text: 'DS' },
-        'Algorithms': { text: 'ALG' },
-        'System Design': { text: 'SYS' },
-        'Event-driven architecture': { text: 'EDA' },
-        'Codex': { svg: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5 14.2 9.8 21.5 12l-7.3 2.2L12 21.5l-2.2-7.3L2.5 12l7.3-2.2L12 2.5Z" fill="#60a5fa"/><circle cx="12" cy="12" r="2.3" fill="#fff"/></svg>', fallback: 'AI' },
-        'ChatGPT': { svg: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 4.5h11A3.5 3.5 0 0 1 21 8v4a3.5 3.5 0 0 1-3.5 3.5h-6.2L6 19v-3.5h-.5A3.5 3.5 0 0 1 2 12V8a3.5 3.5 0 0 1 3.5-3.5Z" fill="#60a5fa"/><path d="M7 9.3h10M7 12.2h6" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>', fallback: 'GPT' },
-        'Claude': { src: 'https://cdn.simpleicons.org/claude', fallback: 'C' },
-        'Cursor': { src: 'https://cdn.simpleicons.org/cursor', fallback: 'CU' },
-        'Copilot': { src: 'https://cdn.simpleicons.org/githubcopilot', fallback: 'CP' },
-        'CodeRabbit': { src: 'https://cdn.simpleicons.org/coderabbit', fallback: 'CR' },
-        'MCP': { src: 'https://cdn.simpleicons.org/modelcontextprotocol', fallback: 'MCP' },
-        'Linux / Unix': { src: devicon('linux') },
-        'macOS': { src: devicon('apple') },
-        'Windows': { src: devicon('windows8') }
-      };
-      document.querySelectorAll('.skill-card .tag').forEach((tag) => {
-        const icon = icons[tag.textContent.trim()];
-        if (!icon) return;
-        const mark = document.createElement(icon.svg ? 'span' : icon.src ? 'img' : 'span');
-        mark.className = `tag-logo${icon.text ? ' text-logo' : ''}${icon.svg ? ' svg-logo' : ''}`;
-        if (icon.svg) {
-          mark.innerHTML = icon.svg;
-        } else if (icon.src) {
-          mark.src = icon.src;
-          mark.alt = '';
-          mark.loading = 'lazy';
-          mark.onerror = () => {
-            const fallback = document.createElement('span');
-            fallback.className = 'tag-logo text-logo';
-            fallback.textContent = icon.fallback || '';
-            mark.replaceWith(fallback);
-          };
-        }
-        else mark.textContent = icon.text;
-        tag.classList.add('tag-with-logo');
-        tag.prepend(mark);
-      });
-    })();
-
-    (() => {
-      const list = document.getElementById('ghEvents');
-      const user = 'vipi-n';
-      const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
-      const ago = (date) => { const seconds = (Date.now() - new Date(date).getTime()) / 1000; if (seconds < 60) return 'just now'; if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`; if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`; if (seconds < 2592000) return `${Math.floor(seconds / 86400)}d ago`; return `${Math.floor(seconds / 2592000)}mo ago`; };
-      const describe = (event) => { const repo = event.repo?.name || ''; const payload = event.payload || {}; const messages = { PushEvent: `Pushed ${payload.commits?.length || 0} commit(s) to`, PullRequestEvent: `${payload.action || 'Opened'} pull request in`, IssuesEvent: `${payload.action || 'Opened'} issue in`, IssueCommentEvent: 'Commented on issue in', PullRequestReviewEvent: 'Reviewed pull request in', PullRequestReviewCommentEvent: 'Reviewed pull request in', WatchEvent: 'Starred', ForkEvent: 'Forked', CreateEvent: `Created ${payload.ref_type || 'something'} in` }; const message = payload.commits?.at(-1)?.message?.split('\n')[0] || payload.pull_request?.title || payload.issue?.title || ''; return { action: messages[event.type] || event.type.replace('Event', ''), repo, message }; };
-      fetch(`https://api.github.com/users/${user}/events/public?per_page=8`).then((response) => { if (!response.ok) throw new Error('GitHub request failed'); return response.json(); }).then((events) => { if (!Array.isArray(events) || !events.length) throw new Error('No activity'); list.innerHTML = events.map((event) => { const item = describe(event); return `<li><span class="ev-icon">◆</span><span><span>${escapeHtml(item.action)} </span><a class="ev-repo" href="https://github.com/${escapeHtml(item.repo)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.repo)}</a>${item.message ? `<span class="ev-msg">${escapeHtml(item.message)}</span>` : ''}</span><span class="ev-time">${ago(event.created_at)}</span></li>`; }).join(''); }).catch(() => { list.innerHTML = '<li class="gh-error">Recent activity is unavailable right now. View my <a href="https://github.com/vipi-n" target="_blank" rel="noopener noreferrer">GitHub profile</a> for the latest updates.</li>'; });
-    })();
-  </script>
 </body>
 </html>
