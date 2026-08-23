@@ -1,19 +1,19 @@
 :root {
   color-scheme: light;
-  --bg: #fafafa;
+  --bg: #fcf5eb;
   --ink: #171717;
   --muted: #3f4349;
   --subtle: #555a62;
   --faint: #626871;
-  --line: #e6e6e6;
-  --line-strong: #d6d6d6;
-  --surface: rgba(255, 255, 255, .72);
+  --line: #ded8cf;
+  --line-strong: #b8b0a6;
+  --surface: #fff;
   --surface-solid: #fff;
-  --surface-soft: #f5f5f5;
-  --dock: rgba(255, 255, 255, .88);
-  --dock-active: #f0f0f0;
-  --dots: #d7d7d7;
-  --shadow: rgba(0, 0, 0, .09);
+  --surface-soft: #f8f4ee;
+  --dock: rgba(255, 255, 255, .94);
+  --dock-active: #f3eee7;
+  --dots: #d3cdc4;
+  --shadow: rgba(58, 42, 22, .1);
 }
 
 :root[data-theme="dark"] {
@@ -39,8 +39,7 @@ html { background: var(--bg); }
 body { margin: 0; background: var(--bg) !important; color: var(--ink) !important; font-family: Manrope, sans-serif; transition: background-color .25s ease, color .25s ease; }
 .text-muted { color: var(--muted) !important; font-weight: 600; }
 main > header > p:last-child { font-weight: 600; }
-.dot-fade { position: absolute; inset: 0 0 auto; height: 260px; overflow: hidden; pointer-events: none; background-image: radial-gradient(var(--dots) .8px, transparent .8px); background-size: 8px 8px; mask-image: linear-gradient(to bottom, black, transparent); }
-.dot-fade-tall { height: 520px; }
+.flickering-grid { position: absolute; inset: 0 0 auto; z-index: 0; display: block; width: 100%; height: 320px; overflow: hidden; pointer-events: none; mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, .82) 58%, transparent 100%); }
 .content-section { margin-top: 72px; }
 .content-section h2 { margin: 0 0 24px; font-size: 19px; font-weight: 800; letter-spacing: -.025em; }
 .prose-copy { display: grid; gap: 20px; color: var(--muted); font-size: 15px; font-weight: 600; line-height: 1.9; }
@@ -50,7 +49,8 @@ main > header > p:last-child { font-weight: 600; }
 .principle-grid span { color: var(--subtle); font: 10px "DM Mono", monospace; }
 .principle-grid h3 { margin: 36px 0 9px; font-size: 14px; }
 .principle-grid p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
-.contact-panel { position: relative; padding: 70px 44px 42px; border: 1px solid var(--line-strong); border-radius: 22px; background-color: var(--surface); background-image: linear-gradient(to bottom, transparent 0, color-mix(in srgb, var(--surface-solid) 92%, transparent) 76%), radial-gradient(var(--dots) .8px, transparent .8px); background-size: 100% 100%, 8px 8px; }
+.contact-panel { position: relative; padding: 70px 44px 42px; border: 1px solid var(--line-strong); border-radius: 22px; background-color: var(--surface); background-image: linear-gradient(to bottom, transparent 0, color-mix(in srgb, var(--surface-solid) 92%, transparent) 76%); }
+.contact-flickering-grid { position: absolute; inset: 0; z-index: 0; display: block; width: 100%; height: 100%; border-radius: inherit; pointer-events: none; mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, .78) 60%, transparent 100%); }
 .contact-kicker { position: absolute; top: -20px; left: 50%; z-index: 2; min-width: 108px; padding: 11px 19px; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--ink); box-shadow: 0 8px 24px var(--shadow); color: var(--bg); font-size: 12px; font-weight: 800; text-align: center; transform: translateX(-50%); }
 .contact-content { position: relative; z-index: 1; }
 .contact-content h1, .contact-content h2 { margin: 0; font-size: clamp(42px, 8vw, 68px); line-height: .98; letter-spacing: -.065em; text-align: center; }

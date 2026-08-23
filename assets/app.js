@@ -8,7 +8,7 @@
     if (persist) {
       try { localStorage.setItem('portfolio-theme', theme); } catch (_) {}
     }
-    if (themeMeta) themeMeta.content = theme === 'dark' ? '#0f1115' : '#fafafa';
+    if (themeMeta) themeMeta.content = theme === 'dark' ? '#0f1115' : '#fcf5eb';
     const button = document.querySelector('[data-theme-toggle]');
     if (button) {
       const dark = theme === 'dark';
@@ -69,6 +69,94 @@
     try {
       if (!localStorage.getItem('portfolio-theme')) setTheme(event.matches ? 'dark' : 'light');
     } catch (_) { setTheme(event.matches ? 'dark' : 'light'); }
+  });
+
+  const flickeringGrids = document.querySelectorAll('[data-flickering-grid]');
+  flickeringGrids.forEach(canvas => {
+    const context = canvas.getContext('2d');
+    if (!context) return;
+
+    const squareSize = Number(canvas.dataset.squareSize) || 3;
+    const gridGap = Number(canvas.dataset.gridGap) || 6;
+    const cellSize = squareSize + gridGap;
+    const flickerChance = .16;
+    const maxOpacity = .3;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let columns = 0;
+    let rows = 0;
+    let opacities = new Float32Array();
+    let pixelRatio = 1;
+    let frame = 0;
+    let lastTime = 0;
+    let visible = true;
+
+    const drawGrid = () => {
+      const width = canvas.width / pixelRatio;
+      const height = canvas.height / pixelRatio;
+      context.clearRect(0, 0, width, height);
+      context.fillStyle = getComputedStyle(root).getPropertyValue('--ink').trim();
+      for (let column = 0; column < columns; column += 1) {
+        for (let row = 0; row < rows; row += 1) {
+          context.globalAlpha = opacities[column * rows + row];
+          context.fillRect(column * cellSize, row * cellSize, squareSize, squareSize);
+        }
+      }
+      context.globalAlpha = 1;
+    };
+
+    const resizeGrid = () => {
+      const bounds = canvas.getBoundingClientRect();
+      const width = Math.max(1, Math.round(bounds.width));
+      const height = Math.max(1, Math.round(bounds.height));
+      pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(width * pixelRatio);
+      canvas.height = Math.round(height * pixelRatio);
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      columns = Math.floor(width / cellSize);
+      rows = Math.floor(height / cellSize);
+      opacities = new Float32Array(columns * rows);
+      for (let index = 0; index < opacities.length; index += 1) {
+        opacities[index] = Math.random() * maxOpacity;
+      }
+      drawGrid();
+    };
+
+    const animateGrid = time => {
+      if (!visible || reducedMotion.matches) return;
+      const elapsed = lastTime ? (time - lastTime) / 1000 : 0;
+      lastTime = time;
+      for (let index = 0; index < opacities.length; index += 1) {
+        if (Math.random() < flickerChance * elapsed) {
+          opacities[index] = Math.random() * maxOpacity;
+        }
+      }
+      drawGrid();
+      frame = requestAnimationFrame(animateGrid);
+    };
+
+    const restartGrid = () => {
+      cancelAnimationFrame(frame);
+      lastTime = 0;
+      drawGrid();
+      if (visible && !reducedMotion.matches) frame = requestAnimationFrame(animateGrid);
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      resizeGrid();
+      restartGrid();
+    });
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      restartGrid();
+    }, { threshold: 0 });
+    const themeObserver = new MutationObserver(drawGrid);
+
+    resizeObserver.observe(canvas);
+    visibilityObserver.observe(canvas);
+    themeObserver.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    reducedMotion.addEventListener?.('change', restartGrid);
+    resizeGrid();
+    restartGrid();
   });
 
   const contributionCalendar = document.querySelector('[data-contribution-calendar]');
