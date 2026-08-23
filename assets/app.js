@@ -28,10 +28,10 @@
   const dock = document.querySelector('.dock');
   if (dock) {
     const dockItems = {
-      'index.html': { label: 'Home', icon: 'https://api.iconify.design/lucide:house.svg?color=%236f7785' },
-      'work.html': { label: 'Experience', icon: 'https://api.iconify.design/lucide:briefcase-business.svg?color=%236f7785' },
-      'projects.html': { label: 'Open source', icon: 'https://api.iconify.design/lucide:git-pull-request.svg?color=%236f7785' },
-      'about.html': { label: 'About', icon: 'https://api.iconify.design/lucide:user-round.svg?color=%236f7785' }
+      '/': { label: 'Home', icon: 'https://api.iconify.design/lucide:house.svg?color=%236f7785' },
+      '/work/': { label: 'Experience', icon: 'https://api.iconify.design/lucide:briefcase-business.svg?color=%236f7785' },
+      '/projects/': { label: 'Open source', icon: 'https://api.iconify.design/lucide:git-pull-request.svg?color=%236f7785' },
+      '/about/': { label: 'About', icon: 'https://api.iconify.design/lucide:user-round.svg?color=%236f7785' }
     };
 
     dock.querySelectorAll('a').forEach(link => {
